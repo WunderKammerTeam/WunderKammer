@@ -17,7 +17,7 @@ require('./configs/passport.config').setup(passport);
 const index = require('./routes/index.routes');
 const auth = require('./routes/auth.routes');
 const users = require('./routes/users.routes');
-const laundry = require('./routes/laundry.routes');
+const products = require('./routes/products.routes');
 
 const app = express();
 
@@ -52,7 +52,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use((req, res, next) => {
-  res.locals.title = 'Uber for Laundry';
+  res.locals.title = 'WunderKammer';
   res.locals.session = req.user || {};
   res.locals.flash = req.flash() || {};
   next();
@@ -61,7 +61,7 @@ app.use((req, res, next) => {
 app.use('/', index);
 app.use('/', auth);
 app.use('/users', users);
-app.use('/', laundry);
+app.use('/products', products);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
