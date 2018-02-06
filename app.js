@@ -11,6 +11,8 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
 
+console.log("hola caracola");
+
 require('./configs/db.config');
 require('./configs/passport.config').setup(passport);
 
