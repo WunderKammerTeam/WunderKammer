@@ -5,8 +5,8 @@ const MONGODB_URI = process.env.MONGODB_URI || `mongodb://localhost/${DB_NAME}`;
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI)
     .then(() => {
-        console.info(`Yeah! Connected to db ${DB_NAME}`);
+        console.info(`***********************\nYeah! Connected to db ${DB_NAME}\nWUNDERKAMMER DATA BASE SERVER STARTED UP!!!!!\n***********************`);
     })
     .catch(error => {
-        console.error(`Oops... Unable to connect to db ${DB_NAME}: ${error}`);
+        console.error(`WARNING!!!!!!!!!!!!!!!!!!!!!!\nOops... Unable to connect to db ${DB_NAME}: ${error}`);
     })

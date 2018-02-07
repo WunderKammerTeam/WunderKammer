@@ -11,17 +11,22 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
 
-console.log("hola caracola");
 
+// Import DB and passport config
 require('./configs/db.config');
 require('./configs/passport.config').setup(passport);
 
+
+// Require routes
 const index = require('./routes/index.routes');
 const auth = require('./routes/auth.routes');
+console.log("!!!!!!!!!!!!!!!!!\nArchivo APP.JS por aqui ha pasado el programa sin problemas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 const users = require('./routes/users.routes');
 const products = require('./routes/products.routes');
 
+
 const app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
