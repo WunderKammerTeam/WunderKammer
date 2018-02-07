@@ -30,8 +30,8 @@ module.exports.create = (req, res) => {
     // ver modelo
     //esto esta copiado de PT_solutions restaurants-gmaps
     
-    }
-  }).save()
+    })
+    .save()
     .then((restaurant) => {
       res.redirect("/products");
     })
