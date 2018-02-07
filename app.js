@@ -1,3 +1,4 @@
+// Require project dependencies
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -11,22 +12,18 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
 
-
 // Import DB and passport config
 require('./configs/db.config');
 require('./configs/passport.config').setup(passport);
 
-
 // Require routes
 const index = require('./routes/index.routes');
 const auth = require('./routes/auth.routes');
-console.log("!!!!!!!!!!!!!!!!!\nArchivo APP.JS por aqui ha pasado el programa sin problemas!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 const users = require('./routes/users.routes');
 const products = require('./routes/products.routes');
 
-
+// initialize  Express application
 const app = express();
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -34,8 +31,8 @@ app.set('view engine', 'ejs');
 app.set('layout', 'layouts/main');
 app.use(expressLayouts);
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// Middlewares
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
