@@ -3,11 +3,11 @@ const Schema   = mongoose.Schema;
 
 const ProductSchema = new Schema({
 
-    id_Amazon: {
+    id_amazon: {
         type: String,
         required: [true, 'Amazon´s ID is required']
     },
-    url_Amazon: {
+    url_amazon: {
         type: String,
         required: [true, 'Amazon´s URL is required']
     },
@@ -24,7 +24,7 @@ const ProductSchema = new Schema({
         type: String
     },
     price: {
-        type: Number,
+        type: String,
         required: [true, 'Price is required'],
         min: 0
     },
@@ -35,5 +35,5 @@ const ProductSchema = new Schema({
 
 });
 
-const Product = mongoose.model('Product', ProductSchema); 
+const Product = mongoose.model('Product', ProductSchema);
 module.exports = Product;
