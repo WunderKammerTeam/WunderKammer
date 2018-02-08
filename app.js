@@ -26,7 +26,7 @@ const products = require('./routes/products.routes');
 const app = express();
 
 // view engine setup
-app.use(expressLayout);
+app.use(expressLayouts);
 app.set('layout', 'layout');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
