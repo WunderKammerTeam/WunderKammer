@@ -1,42 +1,101 @@
-<!-- REVISAR QUE ESTA COPIADO DE RESTAURANTES -->
-<!-- REVISAR QUE ESTA COPIADO DE RESTAURANTES -->
-<!-- REVISAR QUE ESTA COPIADO DE RESTAURANTES -->
-<!-- REVISAR QUE ESTA COPIADO DE RESTAURANTES -->
-
-
 
 <!DOCTYPE html>
 <html>
 <head>
   <title>WunderKammer</title>  
-  
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
-
-  <script type="text/javascript" src="/javascripts/application.js"></script>
-
-  <!-- Google Maps -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvoWeqYWCstuthRp-zEEoJ0LnWirUm6BQ&callback=initMap"
-    async defer></script>
 </head>
+
 <body>
-  <section class="container">
-    <div id="map"></div>
 
-    <ul class="nav nav-tabs">
-      <li role="presentation" class="<%= path == "/" ? "active" : "" %>">
-        <a href="/restaurants">Restaurants</a>
-      </li>
-      <li role="presentation" class="<%= path == "/new" ? "active" : "" %>">
-        <a href="/restaurants/new">New</a>
-      </li>
-    </ul>
+  <!-- Este es el header con el Nav que va a ser común para todas las vistas -->
+  <div class="container-fluid color1">
 
-    <article>
-      <%- body %>
-    </article>
-  </section>
+    <nav class="container navbar navbar-default color1">
+
+        <a href="#">
+            <div class="logo">
+            </div>
+          </a>
+
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">WunderKammer</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Categories</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+
+    </nav>
+  </div>
+
+
+  <!-- Aquí va la parte variable que envía cada vista -->
+ <div class="container">
+    <%- body %>
+ </div>
+
+
+
+  <!-- Este es el footer que va a ser común para todas las vistas -->
+  <div class="container-fluid color2">
+   
+      <footer class="container footer-bs">
+          <div class="row">
+            <div class="col-md-3 footer-brand animated fadeInLeft">
+                <h2>Logo</h2>
+                  <p>Bizarre products curated from Amazon just for you.</p>
+                  <p>© 2018 Wunder Incorporated,  All rights reserved</p>
+              </div>
+            <div class="col-md-4 footer-nav animated fadeInUp">
+                <h4>Menu —</h4>
+                <div class="col-md-6">
+                      <ul class="pages">
+                          <li><a href="#">Travel</a></li>
+                          <li><a href="#">Nature</a></li>
+                          <li><a href="#">Explores</a></li>
+                          <li><a href="#">Science</a></li>
+                          <li><a href="#">Advice</a></li>
+                      </ul>
+                  </div>
+                <div class="col-md-6">
+                      <ul class="list">
+                          <li><a href="#">About Us</a></li>
+                          <li><a href="#">Contacts</a></li>
+                          <li><a href="#">Terms & Condition</a></li>
+                          <li><a href="#">Privacy Policy</a></li>
+                      </ul>
+                  </div>
+              </div>
+            <div class="col-md-2 footer-social animated fadeInDown">
+                <h4>Follow Us</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">RSS</a></li>
+                  </ul>
+              </div>
+            <div class="col-md-3 footer-ns animated fadeInRight">
+                <h4>Newsletter</h4>
+                  <p>A rover wearing a fuzzy suit doesn’t alarm the real penguins</p>
+                  <p>
+                      <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
+                        </span>
+                      </div><!-- /input-group -->
+                   </p>
+              </div>
+          </div>
+      </footer>
+  
+  </div>
 </body>
 </html>
 

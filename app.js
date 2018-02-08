@@ -26,10 +26,10 @@ const products = require('./routes/products.routes');
 const app = express();
 
 // view engine setup
+app.use(expressLayouts);
+app.set('layout', 'layout');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.set('layout', 'layouts/main');
-app.use(expressLayouts);
 
 // Middlewares
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
