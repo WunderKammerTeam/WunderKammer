@@ -1,11 +1,10 @@
 .logo {
-  height: 50px;
-  width: 50px;
-  display: inline-block;
-  float: left;
-  background-image: url("../images/w.png");
-  background-size: contain;
-  background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    background-image: url("../images/w.png");
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 
 .color1 {
@@ -16,7 +15,22 @@
   background-color: #df82da;
 }
 
-.footer-bs {
+.color3 {
+	background-color: #F2F2F2;
+
+}
+
+.product-container {
+	background-color: white;
+	box-shadow: 0.4em 0.4em 1em 0.4em rgba(0, 0, 0, 0.1);
+	margin-top: 100%;
+}
+
+
+
+
+
+  .footer-bs {
 	padding: 60px 40px;
 	color: rgba(255,255,255,1.00);
 	margin-bottom: 20px;
