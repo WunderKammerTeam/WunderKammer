@@ -74,6 +74,7 @@ module.exports.doLogin = (req, res, next) => {
 }
 
 module.exports.logout = (req, res, next) => {
+  console.log("Hey");
   req.logout();
   res.redirect('/login');
 }

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>WunderKammer</title>  
+  <title>WunderKammer</title>
   <!-- CSS Bootstrap - version 4.0 alpha-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   <!-- CSS customization-->
@@ -35,19 +35,62 @@
   </header>
 
 
+  <nav class="navbar">
+      <div class="container-fluid">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#home-nav" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+          </div>
+
+          <div class="collapse navbar-collapse" id="home-nav">
+
+              <ul class="nav navbar-nav navbar-right">
+                  <li>
+                      <a href="#">
+                          <span class="glyphicon glyphicon-search"></span>
+                      </a>
+                  </li>
+                  <% if (!session.email) { %>
+                  <li>
+                      <a href="/login">Login</a>
+                  </li>
+                  <li>
+                      <a href="/signup">Signup</a>
+                  </li>
+                  <% } else { %>
+                      <li>
+                          <a href="#"><%= session.email %></a>
+                      </li>
+                      <li>
+                          <a href="/logout"><i class="fa fa-sign-out"></i>logout</a>
+                      </li>
+                  <% } %>
+              </ul>
+          </div>
+      </div>
+  </nav>
+
+
+
+
+
   <!-- Aquí va la parte variable que envía cada vista -->
   <main class="container-fluid color3">
     <div class="container">
         <%- body %>
     </div>
   </main>
- 
+
 
 
 
   <!-- Este es el footer que va a ser común para todas las vistas -->
   <footer class="container-fluid color2">
-   
+
       <div class="container footer-bs">
           <div class="row">
             <div class="col-md-3 footer-brand animated fadeInLeft">
@@ -110,4 +153,3 @@
 </body>
 
 </html>
-

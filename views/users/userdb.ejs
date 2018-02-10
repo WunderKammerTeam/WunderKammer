@@ -1,0 +1,8 @@
+<% if (users.length) {%>
+  <% users.forEach((user) => { %>
+    <div>
+      <%= user.name %>
+      <%= user.email %>
+    </div>
+  <% }) %>
+<% } %>
