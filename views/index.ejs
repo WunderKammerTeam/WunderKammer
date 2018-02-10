@@ -1,24 +1,27 @@
-<h2>Hola WunderKammer. Estamos en la vista "index.ejs" </h2> 
+<h2 class="py-4">Hola WunderKammer. Estamos en la vista "index.ejs" </h2> 
+
 
 <% if (products.length) { %>
 
-<h3 class="text-center py-3 ">El listado de productos está en pruebas así que todavía no se ve muy bien....</h3>
+<h3 class="text-center my-3 border border-primary">El listado de productos está en pruebas así que todavía no se ve muy bien....</h3>
     
+<div class="row">
     <% products.forEach(product => { %>
-        <tr>
-        <td>
-            <img src="<%= product.image %>">
-        </td>
-            <td></td>
-            <td><%= product.name %></td>
-            <td><%= product.description %></td>
-            <td><%= product.price %></td>
-            <td><%= product.category %></td>
-        </td>
-        </tr>
+            
+        <div class="m-3 col-md-3 col-sm-6 product-container" >
+            <div class="" style="background-color:powderblue;"></div>
+            <div class=" h-30 color1">
+                <img src="<%= product.image %>" class="img-fluid" alt="product <%= product.name %> image">
+            </div>
+            <b><%= product.name %></b>
+            <span><%= product.description %></span>
+            <span><%= product.price %></span>
+            <span><%= product.category %></span>
+        </div>
+       
     <% }); %>
 
 <% } else { %>
-<h3 class="text-center py-3 ">Atención, no existe mingún producto creado o no se ha podido acceder a la base de datos!!!!</h3>
+<h3 class="text-center my-3 ">Atención, no existe mingún producto creado o no se ha podido acceder a la base de datos!!!!</h3>
 <% } %>
 
