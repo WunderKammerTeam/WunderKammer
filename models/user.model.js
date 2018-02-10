@@ -27,12 +27,11 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, 'User needs a password']
   },
-  isAdmin: { 
-      type: Boolean, 
-      default: false 
+  isAdmin: {
+      type: Boolean,
+      default: false
   }
-}, { timestamps: true });
-  
+}, {timestamps: true});
 
 userSchema.pre('save', function (next) {
   const user = this;
@@ -54,9 +53,8 @@ userSchema.pre('save', function (next) {
 
 userSchema.methods.checkPassword = function (password) {
   return bcrypt.compare(password, this.password);
-}
+},
 
 
 const User = mongoose.model('User', userSchema);
 module.exports = User;
-
