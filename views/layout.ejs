@@ -3,17 +3,18 @@
 <html>
 <head>
   <title>WunderKammer</title>  
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- CSS Bootstrap - version 4.0 alpha-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <!-- CSS customization-->
+  <!-- revisar documentación de Bootstrap y estudiar inclusión en NPM y built-in Sass variables, con inclusion archivo custom.scss-->
   <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 </head>
 
 <body>
 
   <!-- Este es el header con el Nav que va a ser común para todas las vistas -->
-  <div class="container-fluid color1">
-
-    <nav class="container navbar navbar-default color1">
+  <header class="container-fluid color1">
+    <nav class="navbar navbar-default color1">
 
         <a href="#">
             <div class="logo">
@@ -31,20 +32,23 @@
         </ul>
 
     </nav>
-  </div>
+  </header>
 
 
   <!-- Aquí va la parte variable que envía cada vista -->
- <div class="container">
-    <%- body %>
- </div>
+  <main class="container-fluid color3">
+    <div class="container">
+        <%- body %>
+    </div>
+  </main>
+ 
 
 
 
   <!-- Este es el footer que va a ser común para todas las vistas -->
-  <div class="container-fluid color2">
+  <footer class="container-fluid color2">
    
-      <footer class="container footer-bs">
+      <div class="container footer-bs">
           <div class="row">
             <div class="col-md-3 footer-brand animated fadeInLeft">
                 <h2>Logo</h2>
@@ -55,11 +59,10 @@
                 <h4>Menu —</h4>
                 <div class="col-md-6">
                       <ul class="pages">
-                          <li><a href="#">Travel</a></li>
-                          <li><a href="#">Nature</a></li>
-                          <li><a href="#">Explores</a></li>
-                          <li><a href="#">Science</a></li>
-                          <li><a href="#">Advice</a></li>
+                          <li><a href="#">Toys</a></li>
+                          <li><a href="#">Wear</a></li>
+                          <li><a href="#">Unicorn Stuff</a></li>
+                          <li><a href="#">Decoration</a></li>
                       </ul>
                   </div>
                 <div class="col-md-6">
@@ -69,7 +72,11 @@
                           <li><a href="#">Terms & Condition</a></li>
                           <li><a href="#">Privacy Policy</a></li>
                       </ul>
-                  </div>
+                      <div>
+                        <h3>Our Location </h3>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d433868.0837064906!2d35.66744174160663!3d31.836036762053016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151b5fb85d7981af%3A0x631c30c0f8dc65e8!2sAmman!5e0!3m2!1sen!2sjo!4v1499168051085" sytle="" frameborder="0" style="border:0" allowfullscreen></iframe>
+                      </div>
+                </div>
               </div>
             <div class="col-md-2 footer-social animated fadeInDown">
                 <h4>Follow Us</h4>
@@ -89,13 +96,18 @@
                         <span class="input-group-btn">
                           <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
                         </span>
-                      </div><!-- /input-group -->
+                      </div>
                    </p>
               </div>
           </div>
-      </footer>
-  
-  </div>
+        </div>
+  </footer>
+
+  <!-- Javascripts for jQuery, Popper.js, and Bootstrap plugins.-->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
+
 </html>
 
