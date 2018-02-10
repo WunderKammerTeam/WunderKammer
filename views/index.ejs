@@ -1,1 +1,24 @@
-<h1>Hola WunderKammer!!!!</h1> 
+<h2>Hola WunderKammer. Estamos en la vista "index.ejs" </h2> 
+
+<% if (products.length) { %>
+
+<h3 class="text-center py-3 ">El listado de productos está en pruebas así que todavía no se ve muy bien....</h3>
+    
+    <% products.forEach(product => { %>
+        <tr>
+        <td>
+            <img src="<%= product.image %>">
+        </td>
+            <td></td>
+            <td><%= product.name %></td>
+            <td><%= product.description %></td>
+            <td><%= product.price %></td>
+            <td><%= product.category %></td>
+        </td>
+        </tr>
+    <% }); %>
+
+<% } else { %>
+<h3 class="text-center py-3 ">Atención, no existe mingún producto creado o no se ha podido acceder a la base de datos!!!!</h3>
+<% } %>
+
