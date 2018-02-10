@@ -26,16 +26,16 @@ const products = require('./routes/products.routes');
 const app = express();
 
 // view engine setup
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 app.use(expressLayouts);
 app.set('layout', 'layout');
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
 
 // Middlewares
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(flash());
@@ -60,7 +60,12 @@ app.use((req, res, next) => {
   res.locals.session = req.user || {};
   res.locals.flash = req.flash() || {};
   next();
-})
+});
+
+app.use((req, res, next) => {
+  res.locals.session = req.user || {};
+  next();
+});
 
 app.use('/', index);
 app.use('/', auth);
@@ -75,7 +80,7 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function(err, req, res) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

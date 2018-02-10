@@ -1,25 +1,22 @@
 .logo {
-    height: 50px;
-    width: 50px;
-    display: inline-block;
-    float: left;
-    background-image: url("../images/w.png");
-    background-size: contain;
-    background-repeat: no-repeat;
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  float: left;
+  background-image: url("../images/w.png");
+  background-size: contain;
+  background-repeat: no-repeat;
   }
-  
+
 .color1 {
-        background-color: #65d6b4;
+  background-color: #65d6b4;
 }
 
 .color2 {
-    background-color: #df82da;
+  background-color: #df82da;
 }
 
-
-  
-  
-  .footer-bs {
+.footer-bs {
 	padding: 60px 40px;
 	color: rgba(255,255,255,1.00);
 	margin-bottom: 20px;

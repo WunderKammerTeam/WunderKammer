@@ -2,12 +2,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>WunderKammer</title>  
+  <title>WunderKammer</title>
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 </head>
-
+<% if (session.email) { %>
+  logout
+<% } else { %>
+  login
+<% } %>
 <body>
 
   <!-- Este es el header con el Nav que va a ser común para todas las vistas -->
@@ -43,7 +47,7 @@
 
   <!-- Este es el footer que va a ser común para todas las vistas -->
   <div class="container-fluid color2">
-   
+
       <footer class="container footer-bs">
           <div class="row">
             <div class="col-md-3 footer-brand animated fadeInLeft">
@@ -94,8 +98,7 @@
               </div>
           </div>
       </footer>
-  
+
   </div>
 </body>
 </html>
-
