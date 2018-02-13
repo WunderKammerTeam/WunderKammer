@@ -3,42 +3,41 @@
 <html>
 <head>
   <title>WunderKammer</title>
-  <!-- CSS Bootstrap - version 4.0 alpha-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-  <!-- CSS customization-->
-  <!-- revisar documentación de Bootstrap y estudiar inclusión en NPM y built-in Sass variables, con inclusion archivo custom.scss-->
-  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+  <!-- CSS Matarialize - info y tutos en: http://materializecss.com -->
+  <!-- Compiled and minified -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <!-- Icons from Materialize -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- CSS customization  -->
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"> 
+ 
 </head>
 
 <body>
 
   <!-- Este es el header con el Nav que va a ser común para todas las vistas -->
-  <header class="container-fluid color1">
 
-    <nav class="navbar navbar-default color1">
+  <header class="container teal lighten-3">
 
-        <a href="#">
-            <div class="logo">
-            </div>
-          </a>
-
-        <div class="navbar-header">
-          <a class="navbar-brand" <a href="/">WunderKammer</a>
-        </div>
-        <ul class="nav navbar-nav">
+    <nav>
+        <div class="nav-wrapper">
+          <a class="brand-logo" href="/"><img src="/images/w.png" height="50" alt="Wonder Logo"> WunderKammer </a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="#">Products</a></li>
             <li><a href="#">Categories</a></li>
-    
             <% if (!session.email) { %>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/signup">Signup</a></li>
+              <li><a href="/login" class="waves-effect waves-light btn">Login <i class="material-icons right">touch_app</i></a></li>
+              <li><a href="/signup">Signup</a></li>
             <% } else { %>
-                <li>Hola <%= session.name %></li>
-                <li><a href="/create"><i class="fa fa-sign-out"></i>New Product</a></li>
-                <li><a href="/logout"><i class="fa fa-sign-out"></i>logout</a></li>
+              <li><span>Hola <%= session.name %></span>
+              <li><a href="/create">New Product</a></li>
+              <li>><a href="/logout">logout</a></li>
             <% } %>
-        </ul>
-    </nav>
+          </ul>
+        </div>
+      </nav>
+
   </header>
 
 
@@ -54,67 +53,76 @@
 
 
   <!-- Este es el footer que va a ser común para todas las vistas -->
-  <footer class="container-fluid color2">
 
-      <div class="container footer-bs">
+  <footer class="page-footer center-on-small-only blue">
+
+      <!--Footer Links-->
+      <div class="container-fluid">
           <div class="row">
-            <div class="col-md-3 footer-brand animated fadeInLeft">
-                <h2>Logo</h2>
+  
+              <!--First column-->
+              <div class="col-md-4">
+                  <h5 class="title">Footer Content</h5>
+                  <a href="/">
+                    <img src="/images/unicornProud.jpg" height="80" class="d-inline-block align-top" alt="Wonder Unicorn">
+                  </a>
                   <p>Bizarre products curated from Amazon just for you.</p>
                   <p>© 2018 Wunder Incorporated,  All rights reserved</p>
               </div>
-            <div class="col-md-4 footer-nav animated fadeInUp">
-                <h4>Menu —</h4>
-                <div class="col-md-6">
-                      <ul class="pages">
-                          <li><a href="#">Toys</a></li>
-                          <li><a href="#">Wear</a></li>
-                          <li><a href="#">Unicorn Stuff</a></li>
-                          <li><a href="#">Decoration</a></li>
-                      </ul>
-                  </div>
-                <div class="col-md-6">
-                      <ul class="list">
-                          <li><a href="#">About Us</a></li>
-                          <li><a href="#">Contacts</a></li>
-                          <li><a href="#">Terms & Condition</a></li>
-                          <li><a href="#">Privacy Policy</a></li>
-                      </ul>
-                      <div>
-                        <h3>Our Location </h3>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d433868.0837064906!2d35.66744174160663!3d31.836036762053016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151b5fb85d7981af%3A0x631c30c0f8dc65e8!2sAmman!5e0!3m2!1sen!2sjo!4v1499168051085" sytle="" frameborder="0" style="border:0" allowfullscreen></iframe>
-                      </div>
-                </div>
-              </div>
-            <div class="col-md-2 footer-social animated fadeInDown">
-                <h4>Follow Us</h4>
-                <ul>
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">RSS</a></li>
+              <!--/.First column-->
+  
+              <!--Second column-->
+              <div class="col-md-4">
+                  <h5 class="title">Categories</h5>
+                  <ul>
+                      <li><a href="#!">Toys</a></li>
+                      <li><a href="#!">Wear</a></li>
+                      <li><a href="#!">Unicorn Stuff</a></li>
+                      <li><a href="#!">Decoration</a></li>
                   </ul>
               </div>
-            <div class="col-md-3 footer-ns animated fadeInRight">
-                <h4>Newsletter</h4>
-                  <p>A rover wearing a fuzzy suit doesn’t alarm the real penguins</p>
-                  <p>
-                      <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for...">
-                        <span class="input-group-btn">
-                          <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
-                        </span>
-                      </div>
-                   </p>
+              <!--/.Second column-->
+
+              <!--Third column-->
+              <div class="col-md-4">
+                  <h5 class="title">Legal Stuff</h5>
+                  <ul>
+                      <li><a href="#">Terms & Condition</a></li>
+                      <li><a href="#">Privacy Policy</a></li>
+                      <li><a href="#">About Us</a></li>
+                      <li><a href="#">Contacts</a></li>
+                  </ul>
               </div>
+              <!--/.Third column-->
           </div>
+      </div>
+      <!--/.Footer Links-->
+
+      <div class="">
+          <h4>Follow Us</h4>
+          <ul>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">RSS</a></li>
+            </ul>
         </div>
+
+  
+      <!--Copyright-->
+      <div class="footer-copyright">
+          <div class="container-fluid">
+              © 2018 Copyright: <a href="/"> WunderKammer.biz</a>
+          </div>
+      </div>
+      <!--/.Copyright-->
+  
   </footer>
 
-  <!-- Javascripts for jQuery, Popper.js, and Bootstrap plugins.-->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+  <!-- Compiled and minified JavaScript for Matarialize-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 </body>
 
 </html>
