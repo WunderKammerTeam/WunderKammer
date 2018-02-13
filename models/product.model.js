@@ -5,11 +5,11 @@ const ProductSchema = new Schema({
 
     id_amazon: {
         type: String,
-        required: [true, 'Amazon´s ID is required']
+        // required: [true, 'Amazon´s ID is required']
     },
     url_amazon: {
         type: String,
-        required: [true, 'Amazon´s URL is required']
+        // required: [true, 'Amazon´s URL is required']
     },
     name: {
         type: String,
@@ -28,11 +28,10 @@ const ProductSchema = new Schema({
         required: [true, 'Price is required'],
         min: 0
     },
-    image: [{
+    image: {
         type: String,
         default: 'https://placeholdit.imgix.net/~text?txtsize=33&txt=250×250&w=250&h=250'
-    }]
-
+    }
 });
 
 const Product = mongoose.model('Product', ProductSchema);

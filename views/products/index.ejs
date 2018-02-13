@@ -1,0 +1,36 @@
+<a href="/products/new" class="btn btn-primary">New Product</a>
+
+<table id="products-list" class="table table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Desc</th>
+      <th>Price</th>
+      <th>Image</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% products.forEach((product) => { %>
+      <tr>
+        <td>
+          <img src="<%= product.image %>"/>
+        </td>
+        <td>
+          <a href="/products/<%=product._id%>">
+            <%= product.name %>
+          </a>
+        </td>
+        <td><%= product.description %></td>
+        <td><%= product.price %></td>
+        <td>
+          <a href="/products/<%= product._id %>/edit">Edit</a>
+          <form action="/products/<%= product._id %>/delete" method="post">
+            <input type="submit" value="Delete">
+          </form>
+        </td>
+      </tr>
+  <% }) %>
+  </tbody>
+</table>

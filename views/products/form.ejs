@@ -1,0 +1,21 @@
+<% if (typeof product !== 'undefined' && product.name ) { %>
+  <form action="/products/<%= product.id %>" method="post">
+<% } else { %>
+  <form action="/products" method="post">
+<% } %>
+
+  Name:
+  <input type="text" name="name" value="<%= product.name %>">
+
+  Price:
+  <input type="text" name="price" value="<%= product.price %>">
+
+  <!-- Image:
+  <input type="text" name="image" value="<%= product.image %>"> -->
+
+  Description
+  <input type="text" name="description" value="<%= product.description %>">
+
+  <input type="submit"/>
+</form>
+</form>

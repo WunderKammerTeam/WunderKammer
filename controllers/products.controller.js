@@ -1,50 +1,76 @@
 const Product = require('../models/product.model');
-const path = require('path')
+
 
 module.exports.index = (req, res) => {
     Product.find({}).then((products) => {
-    res.render("products/index", {
-        products: products,
-        path: req.path
+    res.render('products/index', {
+        products: products
     });
-  });
-};
-
-module.exports.new = (req, res) => {
-  res.render('products/new', {
-    path: req.path
   });
 };
 
 module.exports.delete = (req, res) => {
-    Product.remove({ _id: req.params.id }).then(() => {
-    res.redirect("/products");
+    Product.remove({_id: req.params.id}).then(() => {
+    res.redirect('/products');
   });
 };
 
-module.exports.create = (req, res) => { 
-  new Product({
+module.exports.new = (req, res) => {
+  const product = new Product({});
+  res.render('products/form', {
+    product
+  });
+};
+
+module.exports.create = (req, res) => {
+  const product = new Product({
     name: req.body.name,
-    description: req.body.description
-    // REVISAR ESTO!!!!! faltan elementos del producto
-    // ver modelo
-    //esto esta copiado de PT_solutions restaurants-gmaps
-    
-    })
-    .save()
-    .then((restaurant) => {
-      res.redirect("/products");
+    description: req.body.description,
+    price: req.body.price,
+  });
+  product.save()
+    .then(() => {
+        res.redirect('/products');
     })
     .catch((err) => {
-      res.render('products/new', {
+      res.render('products/form', {
         err: err,
-        path: req.path
+        product
       });
     });
 };
 
+module.exports.show = (req, res) => {
+  Product.findById(req.params.id).then((product) => {
+    res.render('products/show', {
+      product: product
+    });
+  });
+};
+
+module.exports.edit = (req, res) => {
+  Product.findById(req.params.id).then((product) => {
+    res.render('products/form', {
+      product: product
+    });
+  });
+};
+
+module.exports.update = (req, res) => {
+  const productId = req.params.id;
+  const updates = {
+      name: req.body.name,
+      price: req.body.price,
+      image: req.body.image,
+      description: req.body.description
+  };
+
+  Product.findByIdAndUpdate(productId, updates).then(() => {
+    res.redirect('/products');
+  });
+};
 module.exports.pic = (req, res) => {
     Product.findById(req.params.id).then((product) => {
     res.sendFile(path.join(__dirname, '../', product.file));
   });
-}
+};
