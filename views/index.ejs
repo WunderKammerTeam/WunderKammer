@@ -2,26 +2,28 @@
 
 <% if (products.length) { %>
 
-<h3 class="text-center my-3 border border-primary">El listado de productos está en pruebas así que todavía no se ve muy bien....</h3>
+  <h3 class="text-center my-3 border border-primary">El listado de productos está en pruebas así que todavía no se ve muy bien....</h3>
 
-<div class="row">
-    <% products.forEach(product => { %>
-    <div class="col s6 m4">
-        <div class="card">
-        <div class="card-image">
-            <img src="<%= product.image %>" alt="product <%= product.name %> image">
+  <div class="row">
+      <% products.forEach(product => { %>
+        <div class="col s12 m6">
+        <div class="card custom-card">
+          <div class="card-image">
+            <img class="custom-img" src="<%= product.image %>" alt="product <%= product.name %> image">
             <span class="card-title"><%= product.name %></span>
             <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite</i></a>
-        </div>
-        <div class="card-content">
-            <p><%= product.description %></p>
+          </div>
+          <div class="card-content">
+            <p>
+              <%= product.description %>
+            </p>
             <span><%= product.price %></span>
-        </div>
+          </div>
         </div>
     </div>
-</div>
     <% }); %>
+  </div>
 
-<% } else { %>
-<h3 class="">Atención, no existe mingún producto creado o no se ha podido acceder a la base de datos!!!!</h3>
-<% } %>
+  <% } else { %>
+    <h3 class="">Atención, no existe mingún producto creado o no se ha podido acceder a la base de datos!!!!</h3>
+    <% } %>

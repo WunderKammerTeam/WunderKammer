@@ -1,15 +1,12 @@
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
-
 
 main {
-    flex: 1 0 auto;
+  flex: 1 0 auto;
 }
-
-
 
 .color1 {
   background-color: #65d6b4;
@@ -20,19 +17,22 @@ main {
 }
 
 .color3 {
-	background-color: #F2F2F2;
-
+  background-color: #F2F2F2;
 }
 
 .product-container {
-	background-color: white;
-	box-shadow: 0.4em 0.4em 1em 0.4em rgba(0, 0, 0, 0.1);
-	margin-top: 100%;
+  background-color: white;
+  box-shadow: 0.4em 0.4em 1em 0.4em rgba(0, 0, 0, 0.1);
+  margin-top: 100%;
 }
 
-.wunder-card {
+.wunder-card {}
 
+.custom-card {
+  height: 400px;
+  max-height: 500px;
 }
-.ajustar-foto {
-	object-fit: scale;
-  }
+
+.custom-img {
+  max-height: 300px;
+}
