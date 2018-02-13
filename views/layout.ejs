@@ -3,42 +3,53 @@
 <html>
 <head>
   <title>WunderKammer</title>
-  <!-- CSS Bootstrap - version 4.0 alpha-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-  <!-- CSS customization-->
-  <!-- revisar documentación de Bootstrap y estudiar inclusión en NPM y built-in Sass variables, con inclusion archivo custom.scss-->
-  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+  <!-- CSS MDBootstrap info y tutos en: https://mdbootstrap.com/ -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/css/mdb.min.css" />
+  <!-- CSS customization
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"> 
+  -->
 </head>
 
 <body>
 
   <!-- Este es el header con el Nav que va a ser común para todas las vistas -->
-  <header class="container-fluid color1">
 
-    <nav class="navbar navbar-default color1">
+  <header class="container default-color">
 
-        <a href="#">
-            <div class="logo">
-            </div>
+      <nav class="navbar navbar-expand-lg navbar-dark">
+          <a class="navbar-brand" href="/">
+            <img src="/images/w.png" height="30" class="d-inline-block align-top" alt="Wonder Logo">
+            WunderKammer
           </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+              aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                  <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-item nav-link" href="#">Products</a>
+                  <a class="nav-item nav-link" href="#">Categories</a>
+              </div>
 
-        <div class="navbar-header">
-          <a class="navbar-brand" <a href="/">WunderKammer</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li><a href="#">Products</a></li>
-            <li><a href="#">Categories</a></li>
-    
-            <% if (!session.email) { %>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/signup">Signup</a></li>
-            <% } else { %>
-                <li>Hola <%= session.name %></li>
-                <li><a href="/create"><i class="fa fa-sign-out"></i>New Product</a></li>
-                <li><a href="/logout"><i class="fa fa-sign-out"></i>logout</a></li>
-            <% } %>
-        </ul>
-    </nav>
+              <form class="form-inline waves-effect waves-light">
+                  <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+              </form>
+
+              <div class="navbar-nav">  <!-- justify-content-end -->
+                <% if (!session.email) { %>
+                  <a class="nav-item nav-link" href="/login">Login</a>
+                  <a class="nav-item nav-link" href="/signup">Signup</a>
+                <% } else { %>
+                  <span>Hola <%= session.name %></span>
+                  <a class="nav-item nav-link" href="/create">New Product</a>
+                  <a class="nav-item nav-link" href="/logout">logout</a>
+                <% } %>
+              </div>
+
+          </div>
+
+      </nav>
   </header>
 
 
@@ -54,67 +65,76 @@
 
 
   <!-- Este es el footer que va a ser común para todas las vistas -->
-  <footer class="container-fluid color2">
 
-      <div class="container footer-bs">
+  <footer class="page-footer center-on-small-only blue">
+
+      <!--Footer Links-->
+      <div class="container-fluid">
           <div class="row">
-            <div class="col-md-3 footer-brand animated fadeInLeft">
-                <h2>Logo</h2>
+  
+              <!--First column-->
+              <div class="col-md-4">
+                  <h5 class="title">Footer Content</h5>
+                  <a href="/">
+                    <img src="/images/unicornProud.jpg" height="80" class="d-inline-block align-top" alt="Wonder Unicorn">
+                  </a>
                   <p>Bizarre products curated from Amazon just for you.</p>
                   <p>© 2018 Wunder Incorporated,  All rights reserved</p>
               </div>
-            <div class="col-md-4 footer-nav animated fadeInUp">
-                <h4>Menu —</h4>
-                <div class="col-md-6">
-                      <ul class="pages">
-                          <li><a href="#">Toys</a></li>
-                          <li><a href="#">Wear</a></li>
-                          <li><a href="#">Unicorn Stuff</a></li>
-                          <li><a href="#">Decoration</a></li>
-                      </ul>
-                  </div>
-                <div class="col-md-6">
-                      <ul class="list">
-                          <li><a href="#">About Us</a></li>
-                          <li><a href="#">Contacts</a></li>
-                          <li><a href="#">Terms & Condition</a></li>
-                          <li><a href="#">Privacy Policy</a></li>
-                      </ul>
-                      <div>
-                        <h3>Our Location </h3>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d433868.0837064906!2d35.66744174160663!3d31.836036762053016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151b5fb85d7981af%3A0x631c30c0f8dc65e8!2sAmman!5e0!3m2!1sen!2sjo!4v1499168051085" sytle="" frameborder="0" style="border:0" allowfullscreen></iframe>
-                      </div>
-                </div>
-              </div>
-            <div class="col-md-2 footer-social animated fadeInDown">
-                <h4>Follow Us</h4>
-                <ul>
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">RSS</a></li>
+              <!--/.First column-->
+  
+              <!--Second column-->
+              <div class="col-md-4">
+                  <h5 class="title">Categories</h5>
+                  <ul>
+                      <li><a href="#!">Toys</a></li>
+                      <li><a href="#!">Wear</a></li>
+                      <li><a href="#!">Unicorn Stuff</a></li>
+                      <li><a href="#!">Decoration</a></li>
                   </ul>
               </div>
-            <div class="col-md-3 footer-ns animated fadeInRight">
-                <h4>Newsletter</h4>
-                  <p>A rover wearing a fuzzy suit doesn’t alarm the real penguins</p>
-                  <p>
-                      <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for...">
-                        <span class="input-group-btn">
-                          <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
-                        </span>
-                      </div>
-                   </p>
+              <!--/.Second column-->
+
+              <!--Third column-->
+              <div class="col-md-4">
+                  <h5 class="title">Legal Stuff</h5>
+                  <ul>
+                      <li><a href="#">Terms & Condition</a></li>
+                      <li><a href="#">Privacy Policy</a></li>
+                      <li><a href="#">About Us</a></li>
+                      <li><a href="#">Contacts</a></li>
+                  </ul>
               </div>
+              <!--/.Third column-->
           </div>
+      </div>
+      <!--/.Footer Links-->
+
+      <div class="">
+          <h4>Follow Us</h4>
+          <ul>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">RSS</a></li>
+            </ul>
         </div>
+
+  
+      <!--Copyright-->
+      <div class="footer-copyright">
+          <div class="container-fluid">
+              © 2018 Copyright: <a href="/"> WunderKammer.biz</a>
+          </div>
+      </div>
+      <!--/.Copyright-->
+  
   </footer>
 
-  <!-- Javascripts for jQuery, Popper.js, and Bootstrap plugins.-->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+  <!-- Javascripts for MDBootstrap-->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/js/mdb.min.js"></script>
 </body>
 
 </html>
