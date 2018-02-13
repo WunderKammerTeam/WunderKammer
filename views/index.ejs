@@ -6,20 +6,22 @@
 
 <div class="row">
     <% products.forEach(product => { %>
-
-        <div class="m-3 col-md-3 col-sm-6 product-container" >
-            <div class="" style="background-color:powderblue;"></div>
-            <div class=" h-30 color1">
-                <img src="<%= product.image %>" class="img-fluid" alt="product <%= product.name %> image">
-            </div>
-            <b><%= product.name %></b>
-            <span><%= product.description %></span>
-            <span><%= product.price %></span>
-            <span><%= product.category %></span>
+    <div class="col s6 m4">
+        <div class="card">
+        <div class="card-image">
+            <img src="<%= product.image %>" alt="product <%= product.name %> image">
+            <span class="card-title"><%= product.name %></span>
+            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite</i></a>
         </div>
-
+        <div class="card-content">
+            <p><%= product.description %></p>
+            <span><%= product.price %></span>
+        </div>
+        </div>
+    </div>
+</div>
     <% }); %>
 
 <% } else { %>
-<h3 class="text-center my-3 ">Atención, no existe mingún producto creado o no se ha podido acceder a la base de datos!!!!</h3>
+<h3 class="">Atención, no existe mingún producto creado o no se ha podido acceder a la base de datos!!!!</h3>
 <% } %>

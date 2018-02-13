@@ -3,53 +3,41 @@
 <html>
 <head>
   <title>WunderKammer</title>
-  <!-- CSS MDBootstrap info y tutos en: https://mdbootstrap.com/ -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/css/mdb.min.css" />
-  <!-- CSS customization
+  <!-- CSS Matarialize - info y tutos en: http://materializecss.com -->
+  <!-- Compiled and minified -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <!-- Icons from Materialize -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- CSS customization  -->
   <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"> 
-  -->
+ 
 </head>
 
 <body>
 
   <!-- Este es el header con el Nav que va a ser común para todas las vistas -->
 
-  <header class="container default-color">
+  <header class="container teal lighten-3">
 
-      <nav class="navbar navbar-expand-lg navbar-dark">
-          <a class="navbar-brand" href="/">
-            <img src="/images/w.png" height="30" class="d-inline-block align-top" alt="Wonder Logo">
-            WunderKammer
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-              aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div class="navbar-nav">
-                  <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
-                  <a class="nav-item nav-link" href="#">Products</a>
-                  <a class="nav-item nav-link" href="#">Categories</a>
-              </div>
-
-              <form class="form-inline waves-effect waves-light">
-                  <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-              </form>
-
-              <div class="navbar-nav">  <!-- justify-content-end -->
-                <% if (!session.email) { %>
-                  <a class="nav-item nav-link" href="/login">Login</a>
-                  <a class="nav-item nav-link" href="/signup">Signup</a>
-                <% } else { %>
-                  <span>Hola <%= session.name %></span>
-                  <a class="nav-item nav-link" href="/create">New Product</a>
-                  <a class="nav-item nav-link" href="/logout">logout</a>
-                <% } %>
-              </div>
-
-          </div>
-
+    <nav>
+        <div class="nav-wrapper">
+          <a class="brand-logo" href="/"><img src="/images/w.png" height="50" alt="Wonder Logo"> WunderKammer </a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Categories</a></li>
+            <% if (!session.email) { %>
+              <li><a href="/login" class="waves-effect waves-light btn">Login <i class="material-icons right">touch_app</i></a></li>
+              <li><a href="/signup">Signup</a></li>
+            <% } else { %>
+              <li><span>Hola <%= session.name %></span>
+              <li><a href="/create">New Product</a></li>
+              <li>><a href="/logout">logout</a></li>
+            <% } %>
+          </ul>
+        </div>
       </nav>
+
   </header>
 
 
@@ -133,8 +121,8 @@
 
 
 
-  <!-- Javascripts for MDBootstrap-->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/js/mdb.min.js"></script>
+  <!-- Compiled and minified JavaScript for Matarialize-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 </body>
 
 </html>
