@@ -16,7 +16,7 @@ module.exports.delete = (req, res) => {
 };
 
 module.exports.new = (req, res) => {
-  if (req.user) {
+  if (req.user.isAdmin) {
   const product = new Product({});
   res.render('products/form', {
     product
