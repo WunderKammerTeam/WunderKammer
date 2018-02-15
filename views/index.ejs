@@ -9,7 +9,11 @@
         <div class="col s12 m6">
         <div class="card custom-card">
           <div class="card-image">
-            <img class="custom-img" src="<%= product.image %>" alt="product <%= product.name %> image">
+            <% if (product.image.includes('amazon')) { %>
+              <img class="custom-img" src="<%= product.image %>" alt="product <%= product.name %> image">
+            <% } else { %>
+              <img class="custom-img" src="images/w.jpg" alt="product <%= product.name %> image">
+            <% } %>
             <span class="card-title"><%= product.name %></span>
             <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite</i></a>
           </div>

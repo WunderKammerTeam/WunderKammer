@@ -24,7 +24,9 @@
         <div class="nav-wrapper">
           <a class="brand-logo" href="/"><img src="/images/w.png" height="50" alt="Wonder Logo"> WunderKammer </a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <% if (session && session.isAdmin) { %>
             <li><a href="/products">Products</a></li>
+            <% } %>
             <li><a href="#">Categories</a></li>
             <% if (!session.email) { %>
               <li><a href="/login" class="waves-effect waves-light btn">Login <i class="material-icons right">touch_app</i></a></li>
@@ -64,7 +66,7 @@
               <div class="col-md-4">
                   <h5 class="title">Footer Content</h5>
                   <a href="/">
-                    <img src="/images/unicornProud.jpg" height="80" class="d-inline-block align-top" alt="Wonder Unicorn">
+                    <img src="/images/unicornProud.svg" height="80" class="d-inline-block align-top" alt="Wonder Unicorn">
                   </a>
                   <p>Bizarre products curated from Amazon just for you.</p>
                   <p>© 2018 Wunder Incorporated,  All rights reserved</p>

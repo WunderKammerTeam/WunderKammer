@@ -2,17 +2,17 @@ const mongoose = require('mongoose');
 const User = require('../models/user.model');
 const passport = require('passport');
 
-module.exports.signup = (req, res, next) => {
+module.exports.signup = (req, res) => {
   res.render('auth/signup');
-}
+};
 
 module.exports.doSignup = (req, res, next) => {
-  User.findOne({ email: req.body.email })
+  User.findOne({email: req.body.email})
     .then(user => {
       if (user != null) {
         res.render('auth/signup', {
           user: user,
-          error: { email: 'User already register' }
+          error: {email: 'User already register'}
         });
       } else {
         user = new User({
@@ -36,18 +36,18 @@ module.exports.doSignup = (req, res, next) => {
       }
     })
     .catch(error => next(error));
-}
+};
 
-module.exports.login = (req, res, next) => {
+module.exports.login = (req, res) => {
   res.render('auth/login');
-}
+};
 
 module.exports.doLogin = (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
   if (!email || !password) {
     res.render('auth/login', {
-      user: { email: email },
+      user: {email: email},
       error: {
         email: email ? '' : 'Email is required',
         password: password ? '' : 'Password is required'
@@ -58,23 +58,21 @@ module.exports.doLogin = (req, res, next) => {
       if (error) {
         next(error);
       } else if (!user) {
-        res.render('auth/login', { error: validation });
+        res.render('auth/login', {error: validation});
       } else {
         req.login(user, (error) => {
           if (error) {
             next(error);
           } else {
-            req.flash('welcome', `Welcome back ${user.email}`);
             res.redirect('/');
           }
         });
       }
     })(req, res, next);
   }
-}
+};
 
-module.exports.logout = (req, res, next) => {
-  console.log("Hey");
+module.exports.logout = (req, res) => {
   req.logout();
   res.redirect('/login');
-}
+};
