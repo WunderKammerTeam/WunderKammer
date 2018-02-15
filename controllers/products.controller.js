@@ -16,10 +16,14 @@ module.exports.delete = (req, res) => {
 };
 
 module.exports.new = (req, res) => {
+  if (req.user.isAdmin) {
   const product = new Product({});
   res.render('products/form', {
     product
   });
+} else {
+  res.redirect('/');
+}
 };
 
 module.exports.create = (req, res) => {
