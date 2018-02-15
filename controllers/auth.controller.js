@@ -39,7 +39,10 @@ module.exports.doSignup = (req, res, next) => {
 }
 
 module.exports.login = (req, res, next) => {
-  res.render('auth/login');
+  const showFavMessage = req.query.showFavMessage || false;
+  res.render('auth/login', {
+    showFavMessage
+  });
 }
 
 module.exports.doLogin = (req, res, next) => {

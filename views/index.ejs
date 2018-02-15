@@ -1,29 +1,31 @@
-<h2 class="py-4">Hola WunderKammer. Estamos en la vista "index.ejs" </h2>
 
 <% if (products.length) { %>
 
-  <h3 class="text-center my-3 border border-primary">El listado de productos está en pruebas así que todavía no se ve muy bien....</h3>
-
-  <div class="row">
+  <h3 class="text-center my-3 border border-primary">Welcome to the favulous WunderKammer!!!!</h3>
+  
+  <div class="row card-group">
       <% products.forEach(product => { %>
-        <div class="col s12 m6">
-        <div class="card custom-card">
-          <div class="card-image">
-            <img class="custom-img" src="<%= product.image %>" alt="product <%= product.name %> image">
-            <span class="card-title"><%= product.name %></span>
-            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite</i></a>
+          <div class=" col-md-4 col-sm-6 portfolio-item">
+              <div class="card" style="padding: 2em">
+                <img class="card-img-top mh-75" src="<%= product.image %>" alt="product <%= product.name %> image" style="object-fit: scale-down; height: 150px">
+                <div class="card-body mh-25">
+                  <h4 class="card-title text-truncate">
+                    <a href="#"><%= product.name %></a>
+                  </h4>
+                  <p class="card-text text-truncate"><%= product.description %></p>
+                  <button type="button" class="btn btn-link">Link</button>
+                  <a class="btn redondo orange" href="#" role="button"><i class="material-icons right">add</i></a>
+                  <a class="btn redondo red btn-like" href="#" role="button"><i class="material-icons right">favorite</i></a>
+                  
+                  
+                  
+                </div>
+              </div>
           </div>
-          <div class="card-content">
-            <p>
-              <%= product.description %>
-            </p>
-            <span><%= product.price %></span>
-          </div>
-        </div>
-    </div>
-    <% }); %>
+      <% }); %>
   </div>
-
+  
   <% } else { %>
-    <h3 class="">Atención, no existe mingún producto creado o no se ha podido acceder a la base de datos!!!!</h3>
-    <% } %>
+  <h3 class="">Atención, no existe mingún producto creado o no se ha podido acceder a la base de datos!!!!</h3>
+  <% } %>
+  

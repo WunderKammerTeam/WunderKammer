@@ -6,6 +6,11 @@
         <%= flash.info %>
       </div>
     <% } %>
+    <% if (showFavMessage) { %>
+      <div class="alert alert-info">
+        bls bl bl
+      </div>
+    <% } %>
     <form action="/login" method="POST">
       <div class="form-group <%= typeof error != 'undefined' && error.email ? 'has-error' : '' %>">
         <div class="input-group">
