@@ -11,3 +11,20 @@ module.exports.getUserDb = (req, res) => {
       res.render('users/userdb', {users});
     });
 };
+
+module.exports.showProfile = (req, res) => {
+  res.render('users/profile', {
+    user: res.locals.session,
+  });
+};
+
+module.exports.editProfileGet = (req, res) => {
+  console.log('Entro en el controlador')
+  res.render('users/editprofile', {
+    user: res.locals.session,
+  });
+};
+
+module.exports.editProfilePost = (req, res) => {
+
+};

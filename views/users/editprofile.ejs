@@ -1,0 +1,6 @@
+Mostrar todos los datos del usuario pudiéndolos editar.
+
+<form action="./users/profile/<%= user._id %>" method="post">
+  <input type="text" name="description" value="<%= session.description %>">
+  <button type="submit" name="button">Guardar</button>
+</form>
