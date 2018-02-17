@@ -2,11 +2,15 @@ const Product = require('../models/product.model');
 
 
 module.exports.index = (req, res) => {
+  if (req.user && req.user.isAdmin) {
     Product.find({}).then((products) => {
-    res.render('products/index', {
-        products: products
+      res.render('products/index', {
+          products: products
+      });
     });
-  });
+  } else {
+    res.redirect('/');
+  }
 };
 
 module.exports.delete = (req, res) => {
@@ -16,10 +20,14 @@ module.exports.delete = (req, res) => {
 };
 
 module.exports.new = (req, res) => {
-  const product = new Product({});
-  res.render('products/form', {
-    product
-  });
+  if (req.user && req.user.isAdmin) {
+    const product = new Product({});
+    res.render('products/form', {
+      product
+    });
+  } else {
+    res.redirect('/');
+  }
 };
 
 module.exports.create = (req, res) => {

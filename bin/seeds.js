@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Product = require('../models/product.model');
+const User = require('../models/user.model');
 mongoose.connect('mongodb://localhost/wunderkammer_db');
 
 const productData = [
@@ -50,11 +51,33 @@ const productData = [
   }
 ];
 
+const userData = [{
+  name: 'EvaAdmin',
+  password: 'Cristian',
+  email: 'evaadmin@admin.com',
+  isAdmin: true
+},
+{
+  name: 'juanchoAdmin',
+  password: 'Cristian',
+  email: 'juanchoadmin@admin.com',
+  isAdmin: true
+}];
+
 Product.create(productData, (err, products) => {
   if (err) throw err;
 
   products.forEach((product) => {
     console.log(product.name);
+  })
+
+})
+
+User.create(userData, (err, users) => {
+  if (err) throw err;
+
+  users.forEach((user) => {
+    console.log(user.name);
   })
   mongoose.connection.close();
 });

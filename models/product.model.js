@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const ProductSchema = new Schema({
-
     id_amazon: {
         type: String,
         // required: [true, 'Amazon´s ID is required']
