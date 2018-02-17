@@ -46,10 +46,12 @@ module.exports.login = (req, res, next) => {
 }
 
 module.exports.doLogin = (req, res, next) => {
+  const showFavMessage = req.query.showFavMessage || false;
   const email = req.body.email;
   const password = req.body.password;
   if (!email || !password) {
     res.render('auth/login', {
+      showFavMessage,
       user: {email: email},
       error: {
         email: email ? '' : 'Email is required',
@@ -61,7 +63,10 @@ module.exports.doLogin = (req, res, next) => {
       if (error) {
         next(error);
       } else if (!user) {
-        res.render('auth/login', {error: validation});
+        res.render('auth/login', {
+          showFavMessage,
+          error: validation,
+        });
       } else {
         req.login(user, (error) => {
           if (error) {

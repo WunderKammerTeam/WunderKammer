@@ -1,36 +1,46 @@
-<a href="/products/new" class="btn btn-primary">New Product</a>
+<main class="container-fluid background-rosita">
+  <div class="container">
 
-<table id="products-list" class="table table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Name</th>
-      <th>Desc</th>
-      <th>Price</th>
-      <th>Image</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% products.forEach((product) => { %>
-      <tr>
-        <td>
-          <img src="<%= product.image %>"/>
-        </td>
-        <td>
-          <a href="/products/<%=product._id%>">
-            <%= product.name %>
-          </a>
-        </td>
-        <td><%= product.description %></td>
-        <td><%= product.price %></td>
-        <td>
-          <a href="/products/<%= product._id %>/edit">Edit</a>
-          <form action="/products/<%= product._id %>/delete" method="post">
-            <input type="submit" value="Delete">
-          </form>
-        </td>
-      </tr>
-  <% }) %>
-  </tbody>
-</table>
+      <h5 class="mt-2">Private area just for admins!</h5>
+    
+      <div >
+          <h4 class="mt-3">Create new Product:</h4>
+          <a href="/products/new" class="btn btn-info">New Product</a>
+          <h4 class="mb-2 mt-4">List of all existing Products in WunderKammer Database:</h4>
+      </div>
+
+      <div class="row flex-column">
+        <% products.forEach((product) => { %>
+          <div class="border border-warning rounded p-3 mb-4 bg-white">
+
+            <div class="row">
+              <div class="col-md-3">
+                <img class="img-thumbnail" src="<%= product.image %>"/>
+              </div>
+              <div class="col-md-9">
+                  <p><b>Product Name: </b><%= product.name %></p>
+                  <p><b>Description: </b> <%= product.description %></p>
+                  <p><b>Product Name: </b><%= product.price %></p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-8">
+              </div>
+              <div class="col-md-2">
+                  <form action="/products/<%= product._id %>/delete" method="post">
+                    <input class="btn btn-danger w-75" type="submit" value="Delete">
+                  </form>
+              </div>
+              <div class="col-md-2">
+                  <a class="btn btn-warning w-75" href="/products/<%= product._id %>/edit" role="button">Edit</a>
+              </div>
+            </div>
+            
+          </div>
+        <% }) %>
+      </div>
+    
+  </div>
+</main>
+  

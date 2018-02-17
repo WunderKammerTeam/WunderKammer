@@ -18,7 +18,9 @@
                     
                       <div class="card-body mh-25">
                         <h4 class="card-title text-truncate">
-                          <a href="#"><%= product.name %></a>
+                          <a href="/products/<%=product._id%>">
+                            <%= product.name %>
+                          </a>
                         </h4>
                         <p class="card-text text-truncate"><%= product.description %></p>
                         <button type="button" class="btn btn-link align-middle">Link</button>

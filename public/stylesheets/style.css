@@ -15,11 +15,13 @@ main {
   background: transparent;
 }
 
-
-
+.background-rosita {
+  background-color: rgb(252, 238, 250);
+  }
 
 
 .color1 {
+
 background-color: #E0A800;
 }
 
