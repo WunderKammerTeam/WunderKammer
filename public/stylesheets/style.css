@@ -4,35 +4,37 @@ body {
   flex-direction: column;
 }
 
+
 main {
   flex: 1 0 auto;
 }
 
+
+.parallax-window {
+  min-height: 400px;
+  background: transparent;
+}
+
+
+
+
+
 .color1 {
-  background-color: #65d6b4;
+background-color: #E0A800;
 }
 
 .color2 {
-  background-color: #df82da;
+background-color: #df82da;
 }
 
 .color3 {
-  background-color: #F2F2F2;
+background-color: #F2F2F2;
+
 }
 
-.product-container {
-  background-color: white;
-  box-shadow: 0.4em 0.4em 1em 0.4em rgba(0, 0, 0, 0.1);
-  margin-top: 100%;
-}
 
-.wunder-card {}
-
-.custom-card {
-  height: 400px;
-  max-height: 500px;
-}
-
-.custom-img {
-  max-height: 300px;
+.redondo {
+height: 50px;
+width: 50px;
+border-radius: 50%;
 }

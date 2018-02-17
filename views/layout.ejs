@@ -1,130 +1,162 @@
 
 <!DOCTYPE html>
-<html>
-<head>
-  <title>WunderKammer</title>
-  <!-- CSS Matarialize - info y tutos en: http://materializecss.com -->
-  <!-- Compiled and minified -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-  <!-- Icons from Materialize -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<html lang="en">
 
-  <!-- CSS customization  -->
-  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <head>
+        <!-- meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>WunderKammer</title>
 
-</head>
+        <!-- CSS Bootstrap - info y tutos en: https://getbootstrap.com/ -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<body>
+        <!-- Icons form FontAwesome -->
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
-  <!-- Este es el header con el Nav que va a ser común para todas las vistas -->
+        <!-- CSS customization  -->
+        <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"> 
+    </head>
+    
+    <body>
 
-  <header class="container teal lighten-3">
-
-    <nav>
-        <div class="nav-wrapper">
-          <a class="brand-logo" href="/"><img src="/images/w.png" height="50" alt="Wonder Logo"> WunderKammer </a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <% if (session && session.isAdmin) { %>
-            <li><a href="/products">Products</a></li>
-            <% } %>
-            <li><a href="#">Categories</a></li>
-            <% if (!session.email) { %>
-              <li><a href="/login" class="waves-effect waves-light btn">Login <i class="material-icons right">touch_app</i></a></li>
-              <li><a href="/signup">Signup</a></li>
-            <% } else { %>
-              <li><span>Hola <%= session.name %></span>
-              <li><a href="/create">New Product</a></li>
-              <li>><a href="/logout">logout</a></li>
-            <% } %>
-          </ul>
-        </div>
-      </nav>
-
-  </header>
-
-
-
-  <!-- Aquí va la parte variable que envía cada vista -->
-  <main class="container-fluid color3">
-    <div class="container">
-        <%- body %>
-    </div>
-  </main>
-
-
-
-
-  <!-- Este es el footer que va a ser común para todas las vistas -->
-
-  <footer class="page-footer center-on-small-only blue">
-
-      <!--Footer Links-->
-      <div class="container-fluid">
-          <div class="row">
-
-              <!--First column-->
-              <div class="col-md-4">
-                  <h5 class="title">Footer Content</h5>
-                  <a href="/">
-                    <img src="/images/unicornProud.svg" height="80" class="d-inline-block align-top" alt="Wonder Unicorn">
-                  </a>
-                  <p>Bizarre products curated from Amazon just for you.</p>
-                  <p>© 2018 Wunder Incorporated,  All rights reserved</p>
-              </div>
-              <!--/.First column-->
-
-              <!--Second column-->
-              <div class="col-md-4">
-                  <h5 class="title">Categories</h5>
-                  <ul>
-                      <li><a href="#!">Toys</a></li>
-                      <li><a href="#!">Wear</a></li>
-                      <li><a href="#!">Unicorn Stuff</a></li>
-                      <li><a href="#!">Decoration</a></li>
+<!-- Este es el header con el Nav que va a ser común para todas las vistas -->   
+  
+      <header>
+          <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e7a5de;">
+              <div class="container">
+              <a class="navbar-brand" href="/"><img src="/images/w.png" height="50" alt="Wonder Logo"> WunderKammer </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                  <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                      <% if (session && session.isAdmin) { %>
+                      <li><a class="nav-link" href="/products">Edit Products</a>
+                       <% } %>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">Categories</a>
+                  </li>
+                  <% if (!session.email) { %>
+                      <li class="nav-item">
+                          <a href="/login" class="btn btn-warning" role="button" aria-pressed="true">Login <i class="fas fa-sign-in-alt"></i></a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="/signup">Signup</a>
+                      </li>
+                  <% } else { %>
+                      <span>Hola <%= session.name %>  </span>
+                      <li class="nav-item">
+                          <a href="/profile">Settings</a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="/logout">logout <i class="fas fa-sign-out-alt"></i></a>
+                      </li>
+                  <% } %>
                   </ul>
               </div>
-              <!--/.Second column-->
-
-              <!--Third column-->
-              <div class="col-md-4">
-                  <h5 class="title">Legal Stuff</h5>
-                  <ul>
-                      <li><a href="#">Terms & Condition</a></li>
-                      <li><a href="#">Privacy Policy</a></li>
-                      <li><a href="#">About Us</a></li>
-                      <li><a href="#">Contacts</a></li>
-                  </ul>
               </div>
-              <!--/.Third column-->
+          </nav>
+      </header>
+
+
+      <!-- Aquí va la parte variable que envía cada vista -->
+      <%- body %>
+
+
+      <!-- Este es el footer que va a ser común para todas las vistas -->
+
+      <footer class="container-fluid color1">
+
+          <!--Footer Links-->
+          <div class="container">
+
+              <div class="row mt-4">
+                  <!--First column-->
+                  <div class="col-md-6">
+                      <h3 class="title">WunderKammer</h3>
+                      <p>Bizarre products curated from <i class="fab fa-amazon"></i> just for you!</p>
+
+                      <a href="/">
+                      <img src="/images/unicornProud.svg" height="120" class="d-inline-block align-top" alt="Wonder Unicorn">
+                      </a>
+
+                      <p>© 2018 Wunder Incorporated,  All rights reserved</p>
+                  </div>
+                  <!--/.First column-->
+
+                  <!--Second column-->
+                  <div class="col-md-3">
+                      <h5 class="title"><i class="fas fa-star"></i> Categories</h5>
+                      <nav class="nav flex-column">
+                          <a class="nav-link" href="#"><i class="fas fa-gem"></i> Toys</a>
+                          <a class="nav-link" href="#"><i class="fas fa-gift"></i> Wear</a>
+                          <a class="nav-link" href="#"><i class="fab fa-sticker-mule"></i> Unicorn Stuff</a>
+                          <a class="nav-link" href="#"><i class="fab fa-fort-awesome"></i> Decoration</a>
+                      </nav>
+                  </div>
+                  <!--/.Second column-->
+
+                  <!--Third column-->
+                  <div class="col-md-3">
+                      <h5 class="title">Legal Stuff</h5>
+                      <nav class="nav flex-column">
+                          <a class="nav-link" href="#">Terms & Condition</a>
+                          <a class="nav-link" href="#">Unicorn Policy</a>
+                          <a class="nav-link" href="#">About Us</a>
+                          <a class="nav-link" href="#">Contact</a>
+                      </nav>
+                  </div>
+                  <!--/.Third column-->
+              </div>
+
+
+
+              <div class="row">
+                      <div class="col-md-9">
+                          <span>Follow Us:</span>      
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                          <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                          <a href="#"><i class="fab fa-youtube"></i></a>
+                      </div>
+                      <div class="col-md-3">
+                          © 2018 Copyright: <a href="/"> WunderKammer.biz</a>
+                      </div>
+              </div>
+
+              <div class="">
+                      <p>Made with tons of love and with </p>
+                      <p><i class="fab fa-node fa-3x"></i></p>
+                      <p>Checkout our code at <a href="#"><i class="fab fa-github fa-2x"></i></a></p> 
+              </div>
           </div>
-      </div>
-      <!--/.Footer Links-->
+          <!--/.Footer Links-->
 
-      <div class="">
-          <h4>Follow Us</h4>
-          <ul>
-              <li><a href="#">Facebook</a></li>
-              <li><a href="#">Twitter</a></li>
-              <li><a href="#">Instagram</a></li>
-              <li><a href="#">RSS</a></li>
-            </ul>
-        </div>
+      </footer>
 
 
-      <!--Copyright-->
-      <div class="footer-copyright">
-          <div class="container-fluid">
-              © 2018 Copyright: <a href="/"> WunderKammer.biz</a>
-          </div>
-      </div>
-      <!--/.Copyright-->
+      <!-- Compiled and minified Bootstrap JavaScript -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-  </footer>
+      <!-- Parallax effect JavaScript -->
+      <script src="/javascript/parallax.min.js"></script>
 
+      <!-- Custom JavaScript -->
+      <script>
+      var isUserAuthenticated = <%= (session.name) ?  true : false %>;
+      $('.btn-like').click(function() {
+          if (!isUserAuthenticated) {
+              window.location.href = '/login?showFavMessage=true';
+          }
+      });
+      </script>
 
+  </body>
 
-  <!-- Compiled and minified JavaScript for Matarialize-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-</body>
-
-</html>

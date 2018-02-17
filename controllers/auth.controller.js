@@ -38,9 +38,12 @@ module.exports.doSignup = (req, res, next) => {
     .catch(error => next(error));
 };
 
-module.exports.login = (req, res) => {
-  res.render('auth/login');
-};
+module.exports.login = (req, res, next) => {
+  const showFavMessage = req.query.showFavMessage || false;
+  res.render('auth/login', {
+    showFavMessage
+  });
+}
 
 module.exports.doLogin = (req, res, next) => {
   const email = req.body.email;
