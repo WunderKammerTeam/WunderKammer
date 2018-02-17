@@ -10,9 +10,17 @@ main {
 }
 
 
+.parallax-window {
+  min-height: 400px;
+  background: transparent;
+}
+
+
+
+
 
 .color1 {
-background-color: #65d6b4;
+background-color: #E0A800;
 }
 
 .color2 {
