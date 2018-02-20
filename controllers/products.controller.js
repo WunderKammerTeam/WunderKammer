@@ -87,17 +87,41 @@ module.exports.pic = (req, res) => {
 
 module.exports.amazoncheck = (req, res) => {
 
-  amazon.itemSearch({
+  amazon.itemLookup({
     idType: 'ASIN',
     itemId: req.params.id,
-    domain: 'webservices.amazon.es'
+    domain: 'webservices.amazon.es',
+    responseGroup: 'ItemAttributes,Images'
   }, function(err, results, response) {
     if (err) {
       console.log("la api ha dado un puto error:");
-      console.log(err.Error);
+      console.log(err);
     } else {
-      console.log(results);  // products (Array of Object) 
-      console.log(response); // response (Array where the first element is an Object that contains Request, Item, etc.) 
+      console.log("esto es results:");
+      console.log(results);
+      
+      
+     
+       // Nota:  ItemLinks son enlaces a revisiones, añadir a la wishlist de amazon, tell a friend y offers...
+
+        // products (Array of Object) 
+      console.log("esto es response:");
+
+      console.log("ID AMAZON:");
+      console.log(response[0].Item[0].ASIN);
+      console.log("URL EN AMAZON:");
+      console.log(response[0].Item[0].DetailPageURL);
+
+      console.log("FOTOS:");
+      console.log(response[0].Item[0].SmallImage);  // esto es la foto ppal en pequeño
+      console.log(response[0].Item[0].MediumImage); // esto es la foto ppal en mediano
+      console.log(response[0].Item[0].LargeImage);  // esto es la foto ppal en grande
+      console.log(response[0].Item[0].ImageSets);
+
+      console.log("DESCRIPCION:");
+      console.log(response[0].Item[0].ItemAttributes[0].Feature);
+      console.log("PRECIO:");
+      console.log(response[0].Item[0].ItemAttributes[0].ListPrice[0].FormattedPrice);
     }
   });
 

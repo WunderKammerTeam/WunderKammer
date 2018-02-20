@@ -26,13 +26,14 @@
       </script> 
 
 
+
       <% if (typeof product !== 'undefined' && product.name ) { %>
         <form action="/products/<%= product.id %>" method="post">
       <% } else { %>
         <form action="/products" method="post">
       <% } %>
 
-        <div class="form-group">
+        <div class="form-group mt-5">
           <label for="id_amazon">Product ID at Amazon Store:</label>
           <input type="text" class="form-control" id="id_amazon" aria-describedby="Product Id at Amazon" placeholder="Enter ID Product at Amazon Store">
           <small id="id_amazonHelp" class="form-text text-muted">Enter just the ID of the product at www.amazon.es</small>
