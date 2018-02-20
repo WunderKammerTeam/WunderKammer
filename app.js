@@ -10,6 +10,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const passport = require('passport');
 const mongoose = require('mongoose');
+const amazon = require('./configs/amazon.config');
 
 // Import DB and passport config
 require('./configs/db.config');

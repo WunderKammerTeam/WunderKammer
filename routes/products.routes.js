@@ -12,4 +12,6 @@ router.get('/:id', productsController.show);
 
 router.post('/:id/delete', productsController.delete);
 
+router.get('/amazoncheck/:id', productsController.amazoncheck);
+
 module.exports = router;

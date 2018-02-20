@@ -8,6 +8,7 @@
     "deploy": "cd .. && git subtree push --prefix starter-code heroku master && cd starter-code"
   },
   "dependencies": {
+    "amazon-product-api": "^0.4.4",
     "bcrypt": "^1.0.3",
     "body-parser": "~1.15.2",
     "connect-flash": "^0.1.1",

@@ -20,7 +20,9 @@ const ProductSchema = new Schema({
         maxlength: 250
     },
     category: {
-        type: String
+        type: String,
+        enum: [ "Toys", "Wear", "Unicorn Stuff", "Decoration"]
+
     },
     price: {
         type: String,
