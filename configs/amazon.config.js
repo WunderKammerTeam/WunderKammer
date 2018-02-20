@@ -1,12 +1,12 @@
 const amazonAPI = require('amazon-product-api');
-const KEY = "AKIAJFJIRUMG6IMSYXQA";
-const SECRET = "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";
-
+const KEY = "AKIAIOCE7TRKM2YWXPJQ";
+const SECRET = "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";
+const TAG = "wunderkammer0a-21";
 
 const amazon = amazonAPI.createClient({
     awsID: KEY,
     awsSecret: SECRET,
-    awsTag: "wunderkammer0a-21"
+    awsTag: TAG
 })
 
 module.exports = amazon;

@@ -90,7 +90,7 @@ module.exports.amazoncheck = (req, res) => {
   amazon.itemSearch({
     idType: 'ASIN',
     itemId: req.params.id,
-    domain: "webservices.amazon.com"
+    domain: 'webservices.amazon.es'
   }, function(err, results, response) {
     if (err) {
       console.log("la api ha dado un puto error:");
