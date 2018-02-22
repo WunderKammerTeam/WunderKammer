@@ -2,6 +2,14 @@ const Product = require('../models/product.model');
 const amazon = require('../configs/amazon.config');
 
 
+module.exports.showAll = (req, res) => {
+  Product.find({}).then((products) => {
+    res.render('products/index', { products: products} );
+  });
+};
+
+
+
 module.exports.index = (req, res) => {
   if (req.user && req.user.isAdmin) {
     Product.find({}).then((products) => {
@@ -54,12 +62,6 @@ module.exports.show = (req, res) => {
     res.render('products/show', {
       product: product
     });
-  });
-};
-
-module.exports.showAll = (req, res) => {
-  Product.find({}).then((products) => {
-    res.render('products/index', { products: products} );
   });
 };
 

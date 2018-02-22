@@ -13,8 +13,8 @@ router.post('/login', secure.nonAuthenticated, authController.doLogin);
 
 router.get('/logout', secure.isAuthenticated, authController.logout);
 
-router.get('/amazonlogin', passport.authenticate('amazon'));
-router.get('/amazon/callback', authController.amazon);
+// router.get('/amazonlogin', passport.authenticate('amazon'));
+// router.get('/amazon/callback', authController.amazon);
 
 
 module.exports = router;
