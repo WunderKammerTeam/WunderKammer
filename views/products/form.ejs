@@ -1,4 +1,4 @@
-<main class="container-fluid background-rosita">
+<main class="container-fluid WK-background-light-1">
   <div class="container my-5">
 
       <form id="check-amazon" action="" method="post">
@@ -9,15 +9,17 @@
       <script type="text/javascript">
         $("#check-amazon").submit(function(event) {
           event.preventDefault();
-          console.log("hola");
-
+          
+          //AJAX call
           $.ajax({
             url: "/products/amazoncheck/" + $("#amazon_id_to_check").val(),
             method: "GET",
             success: function (response) {
+              console.log("AJAX says: okay, this is the response from the Amazon´s API printed at the browser console:");
               console.log(response);
             },
             error: function (err) {
+              console.log("This is AJAX at the browser console:  something went wrong with the Amazon´s API");
               console.log(err);
             },
           })

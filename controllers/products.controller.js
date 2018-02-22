@@ -96,35 +96,37 @@ module.exports.amazoncheck = (req, res) => {
     if (err) {
       console.log("la api ha dado un puto error:");
       console.log(err);
+      res.send(err);
+
     } else {
-      console.log("esto es results:");
+
+      console.log("SERVER CONSOLE - esto es results:");
       console.log(results);
+      console.log("SERVER CONSOLE - esto es response:");
+      console.log(response);
+
+      // Creamos un array vacío en el que vamos a añadir la URL de las fotos del producto
+      var photosArray =[];
+      // Recorremos el array en el que vienen todas las imágenes en distintos formatos y con más propiedades y nos quedamos solo con un array con la URL de las imágenes en calidad Large y las añadimos a PhotosArray
+      for (var i = 0; i < response[0].Item[0].ImageSets[0].ImageSet.length; i++){
+        console.log("adding photo" + i);
+        photosArray.push(response[0].Item[0].ImageSets[0].ImageSet[i].LargeImage[0].URL[0]);
+      }
+
       
-      
-     
-       // Nota:  ItemLinks son enlaces a revisiones, añadir a la wishlist de amazon, tell a friend y offers...
+      var amazonResponse = { 
+        "id_amazon": response[0].Item[0].ASIN[0],
+        "url_amazon": response[0].Item[0].DetailPageURL[0],
+        "name": response[0].Item[0].ItemAttributes[0].Title[0],
+        "description": response[0].Item[0].ItemAttributes[0].Feature, // esto es un array, ojo!!
+        "category": "",
+        "price": response[0].Item[0].ItemAttributes[0].ListPrice[0].FormattedPrice[0],
+        "image": photosArray
+      };
 
-        // products (Array of Object) 
-      console.log("esto es response:");
-
-      console.log("ID AMAZON:");
-      console.log(response[0].Item[0].ASIN);
-      console.log("URL EN AMAZON:");
-      console.log(response[0].Item[0].DetailPageURL);
-
-      console.log("FOTOS:");
-      console.log(response[0].Item[0].SmallImage);  // esto es la foto ppal en pequeño
-      console.log(response[0].Item[0].MediumImage); // esto es la foto ppal en mediano
-      console.log(response[0].Item[0].LargeImage);  // esto es la foto ppal en grande
-      console.log(response[0].Item[0].ImageSets);
-
-      console.log("DESCRIPCION:");
-      console.log(response[0].Item[0].ItemAttributes[0].Feature);
-      console.log("PRECIO:");
-      console.log(response[0].Item[0].ItemAttributes[0].ListPrice[0].FormattedPrice);
+      response = amazonResponse;
+      res.send(response);
+  
     }
   });
-
-
-  res.send( "hola amazon soy tu controlador");
 };

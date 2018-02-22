@@ -1,34 +1,67 @@
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+html {
+  font-size: 1rem;
 }
 
-
-main {
-  flex: 1 0 auto;
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: 1.2rem;
+  }
 }
+
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 1.4rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 1.6rem;
+  }
+}
+
 
 
 .parallax-window {
+  position: relative;
   min-height: 400px;
   background: transparent;
 }
 
-.background-rosita {
-  background-color: rgb(252, 238, 250);
+.WK-vertical-text-center {
+position: absolute;
+top:50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+
+.WK-background-color1 {
+  background-color: rgba(220, 110, 220, 0.7);
+  }
+  
+.WK-background-color2 {
+background-color: rgba(220, 110, 220, 0.4);
+}
+
+.WK-background-light-1 {
+  background-color: rgba(220, 110, 220, 0.15);
   }
 
+.WK-text-color1 {
+    color: rgba(220, 110, 220, 1);
+  }
 
-.color1 {
-
-background-color: #E0A800;
+.WK-text-color2 {
+  color:#727272;
 }
+
+
+
 
 .color2 {
-background-color: #df82da;
-}
-
+  background-color: #E0A800;
+  }
 .color3 {
 background-color: #F2F2F2;
 

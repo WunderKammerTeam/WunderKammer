@@ -1,18 +1,19 @@
 
-<div class="container"></div>
+<div class="container-fluid WK-background-light-1">
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4 py-6">
-            <img src="images/unicornWithStars-256.png" alt="sad unicorn...">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 py-6">
+                <img src="images/unicornWithStars-256.png" alt="sad unicorn...">
+            </div>
+            <div class="col-sm-8 WK-text-color2">
+                <h1 class="py-2">Oooops... something went wrong!</h1>
+                <h2><%= message %></h2>
+                <h3><%= error.status %></h3>
+                <pre><%= error.stack %></pre>
+            </div>
+        
         </div>
-        <div class="col-sm-8">
-            <h1 class="py-2">Oooops... something went wrong!</h1>
-            <h2><%= message %></h2>
-            <h3><%= error.status %></h3>
-            <pre><%= error.stack %></pre>
-        </div>
-       
     </div>
 </div>
 

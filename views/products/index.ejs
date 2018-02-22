@@ -1,46 +1,49 @@
-<main class="container-fluid background-rosita">
-  <div class="container">
+<main class="container-fluid WK-background-light-1 p-0">
 
-      <h5 class="mt-2">Private area just for admins!</h5>
-    
-      <div >
-          <h4 class="mt-3">Create new Product:</h4>
-          <a href="/products/new" class="btn btn-info">New Product</a>
-          <h4 class="mb-2 mt-4">List of all existing Products in WunderKammer Database:</h4>
-      </div>
-
-      <div class="row flex-column">
-        <% products.forEach((product) => { %>
-          <div class="border border-warning rounded p-3 mb-4 bg-white">
-
-            <div class="row">
-              <div class="col-md-3">
-                <img class="img-thumbnail" src="<%= product.image %>" style="height: 200px" />
-              </div>
-              <div class="col-md-9">
-                  <p><b>Product Name: </b><%= product.name %></p>
-                  <p><b>Description: </b> <%= product.description %></p>
-                  <p><b>Product Name: </b><%= product.price %></p>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-8">
-              </div>
-              <div class="col-md-2">
-                  <form action="/products/<%= product._id %>/delete" method="post">
-                    <input class="btn btn-danger w-75" type="submit" value="Delete">
-                  </form>
-              </div>
-              <div class="col-md-2">
-                  <a class="btn btn-warning w-75" href="/products/<%= product._id %>/edit" role="button">Edit</a>
-              </div>
-            </div>
-            
-          </div>
-        <% }) %>
-      </div>
-    
   </div>
+  <h2 >Come and see our Digital Mirabilias!!!!</h2>
+  <% if (products.length) { %>
+
+  <div class="container my-5 ">
+      
+    <h3 class="text-center my-3 border border-primary">Welcome to the favulous WunderKammer!!!!</h3>
+
+      <div class="row card-group">
+          <% products.forEach(product => { %>
+              <div class=" col-md-4 col-sm-6 portfolio-item mb-4">
+
+                  <div class="card" style="padding: 2em">
+                    <img class="card-img-top mh-75" src="<%= product.image %>" alt="product <%= product.name %> image" style="object-fit: scale-down; height: 150px">
+                    
+                      <div class="card-body mh-25">
+                        <h4 class="card-title text-truncate">
+                          <a href="/products/<%=product._id%>">
+                            <%= product.name %>
+                          </a>
+                        </h4>
+                        <p class="card-text text-truncate"><%= product.description %></p>
+                        <button type="button" class="btn btn-link align-middle">Link</button>
+
+                        <a class="btn redondo orange" href="#" role="button"><i class="fas fa-plus"></i></a>
+
+                        <div style="font-size:3em; color:Tomato">
+                          <i class="fas fa-heart"></i>
+                          <span class="fa-layers-counter" style="background:Tomato">1,419</span>
+                        </div>
+                        
+                      </div>
+                  </div>
+
+              </div>
+          <% }); %>
+      </div>
+      
+  </div>
+
+    
+  <% } else { %>
+  <h3 class="">Atención, no existe mingún producto creado o no se ha podido acceder a la base de datos!!!!</h3>
+  <% } %>
+
 </main>
   

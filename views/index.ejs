@@ -1,51 +1,116 @@
-<main class="container-fluid">
-      
-    <div class="parallax-window" data-parallax="scroll" data-image-src="/images/wunderChow.jpg">
-      <h2 >Collecting Digital Mirabilias!!!!</h2>
+<main class="p-0">
+
+  <div class="container-fluid WK-background-light-1 pt-5 pb-5">
+    <div class="container">
+        <h1 class="display-3 text-center WK-text-color2"><b>Welcome to the fabulous WunderKammer!</b></h1>
+        <p class="h3 text-center WK-text-color2">Bizarre products curated from Amazon just for you!</p>
+        <hr class="my-4">
+        <div class="row mt-5">
+          <div class="col-md-4 col-sm-3"></div>
+          <div class="col-md-4 col-sm-6">
+              <a class="btn btn-warning btn-lg w-100" href="#" role="button">Discover Amazing Products</a>
+          </div>
+          <div class="col-md-4 col-sm-3"></div>
+        </div>
     </div>
-
-  <% if (products.length) { %>
-
-  <div class="container my-5 background-rosita">
-      
-    <h3 class="text-center my-3 border border-primary">Welcome to the favulous WunderKammer!!!!</h3>
-
-      <div class="row card-group">
-          <% products.forEach(product => { %>
-              <div class=" col-md-4 col-sm-6 portfolio-item mb-4">
-
-                  <div class="card" style="padding: 2em">
-                    <img class="card-img-top mh-75" src="<%= product.image %>" alt="product <%= product.name %> image" style="object-fit: scale-down; height: 150px">
-                    
-                      <div class="card-body mh-25">
-                        <h4 class="card-title text-truncate">
-                          <a href="/products/<%=product._id%>">
-                            <%= product.name %>
-                          </a>
-                        </h4>
-                        <p class="card-text text-truncate"><%= product.description %></p>
-                        <button type="button" class="btn btn-link align-middle">Link</button>
-
-                        <a class="btn redondo orange" href="#" role="button"><i class="fas fa-plus"></i></a>
-
-                        <div style="font-size:3em; color:Tomato">
-                          <i class="fas fa-heart"></i>
-                          <span class="fa-layers-counter" style="background:Tomato">1,419</span>
-                        </div>
-                        
-                      </div>
-                  </div>
-
-              </div>
-          <% }); %>
-      </div>
-      
   </div>
 
-    
-  <% } else { %>
-  <h3 class="">Atención, no existe mingún producto creado o no se ha podido acceder a la base de datos!!!!</h3>
-  <% } %>
+
+  <div class="parallax-window" data-parallax="scroll" data-image-src="/images/wunderGlasses.jpg">
+    <div class="WK-vertical-text-center ">
+          <h1 class="display-3 text-center WK-text-color1"><b>Enter and discover digital Miarabilias</b></h1>
+          <p class="h4 text-center text-white">Like nothing you've ever seen before</p>
+    </div>
+  </div>
+  
+  <div class="container-fluid WK-background-light-1 pt-5 pb-5">
+      <div class="container">
+          <div class="row">
+            <div class="col-sm-4 text-center">
+                <img src="/images/unicornWithStars-pink.png" height="200" alt="Wonder Unicorn">
+            </div>
+            <div class="col-sm-8 WK-text-color2">
+              <h3 class="h-3 "> Ladies and gentlemen, may I have your attentionplease?</h3>
+              <h2 class="h-3 "><b>Come on and see our our bizarre collection of wonders</b></h2>
+              <h1 class="text-right"> <i class="fab fa-amazon" ></i></h1>
+              <p class="text-right">Brought directly from the far depths of Amazon tojust for you</p>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col-md-4 col-sm-3"></div>
+            <div class="col-md-4 col-sm-6">
+                <a class="btn btn-warning btn-lg w-100" href="/login" role="button">Get registered <i class="fas fa-sign-in-alt"></i></a>
+            </div>
+            <div class="col-md-4 col-sm-3"></div>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+  <div class="parallax-window" data-parallax="scroll" data-image-src="/images/wunderFlamingo.jpg">
+    <div class="WK-vertical-text-center ">
+          <h1 class="display-3 text-center WK-text-color1"><b>Get registered and create your own collections!</b></h1>
+          <p class="h4 text-center text-white">Come on, become a WunderKammer!!</p>
+    </div>
+  </div>
+
+  <div class="container-fluid WK-background-light-1 pt-5 pb-5">
+    <div class="container">
+      
+      <% if (products.length) { %>
+      <h2 class="WK-text-color2 mb-4">These are some of our top rated Marabilias:</h2>
+
+      <div class="row card-group">
+        <% for (let i = 0; i < 6; i++){ %> 
+          <div class=" col-md-4 col-sm-6 portfolio-item mb-4">
+            <div class="card" style="padding: 2em">
+              <img class="card-img-top mh-75" src="<%= products[i].image %>" alt="product <%= products[i].name %> image" style="object-fit: scale-down; height: 150px">
+              
+                <div class="card-body mh-25">
+                  <h4 class="card-title text-truncate">
+                    <a href="/products/<%=products[i]._id%>">
+                      <%= products[i].name %>
+                    </a>
+                  </h4>
+                  <p class="card-text text-truncate"><%= products[i].description %></p>
+                  <button type="button" class="btn btn-link align-middle">Link</button>
+
+                  <a class="btn redondo orange" href="#" role="button"><i class="fas fa-plus"></i></a>
+
+                  <div style="font-size:3em; color:Tomato">
+                    <i class="fas fa-heart"></i>
+                    <span class="fa-layers-counter" style="background:Tomato">1,419</span>
+                  </div>
+                  
+                </div>
+              </div>
+          </div>
+        <% }; %> 
+      </div>
+  
+      <% } else { %>
+      <h3 class="">Atención, no existe mingún producto creado o no se ha podido acceder a la base de datos!!!!</h3>
+      <% } %>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-2"></div>
+        <div class="col-md-6 col-sm-8">
+            <a class="btn btn-warning btn-lg w-100" href="/products/index" role="button">Discover more Marabilias!!</a>
+        </div>
+        <div class="col-md-3 col-sm-2"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="parallax-window py-5" data-parallax="scroll" data-image-src="/images/wunderChow.jpg">
+    <div class="WK-vertical-text-center ">
+          <h1 class="display-3 text-center WK-text-color1"><b>Wow, this is wonderful!!</b></h1>
+          <p class="h4 text-center text-white">A feast for your eyes to see</p>
+    </div>
+  </div>
 
 </main>
   
