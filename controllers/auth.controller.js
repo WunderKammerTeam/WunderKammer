@@ -80,6 +80,10 @@ module.exports.doLogin = (req, res, next) => {
   }
 };
 
+module.exports.amazon = (req, res, next) => {
+  console.log('entro al callback')
+};
+
 module.exports.logout = (req, res) => {
   req.logout();
   res.redirect('/login');

@@ -57,6 +57,13 @@ module.exports.show = (req, res) => {
   });
 };
 
+module.exports.showAll = (req, res) => {
+  Product.find({}).then((products) => {
+    res.render('products/index', { products: products} );
+  });
+};
+
+
 module.exports.edit = (req, res) => {
   Product.findById(req.params.id).then((product) => {
     res.render('products/form', {

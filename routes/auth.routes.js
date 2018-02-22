@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/auth.controller');
 const secure = require('../middleware/secure.middleware');
+const passport = require('passport');
 
 
 router.get('/signup', secure.nonAuthenticated, authController.signup);
@@ -11,6 +12,9 @@ router.get('/login', secure.nonAuthenticated, authController.login);
 router.post('/login', secure.nonAuthenticated, authController.doLogin);
 
 router.get('/logout', secure.isAuthenticated, authController.logout);
+
+router.get('/amazonlogin', passport.authenticate('amazon'));
+router.get('/amazon/callback', authController.amazon);
 
 
 module.exports = router;

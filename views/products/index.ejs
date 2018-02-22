@@ -1,49 +1,42 @@
 <main class="container-fluid WK-background-light-1 p-0">
-
-  </div>
-  <h2 >Come and see our Digital Mirabilias!!!!</h2>
+  <div class="container py-5 ">
   <% if (products.length) { %>
 
-  <div class="container my-5 ">
-      
-    <h3 class="text-center my-3 border border-primary">Welcome to the favulous WunderKammer!!!!</h3>
+    <h2 class="h-3 WK-text-color2 mb-5" >These are our Digital Mirabilias!!!!</h2>
 
-      <div class="row card-group">
-          <% products.forEach(product => { %>
-              <div class=" col-md-4 col-sm-6 portfolio-item mb-4">
+    <div class="row card-group">
+        <% products.forEach(product => { %>
+            <div class=" col-md-4 col-sm-6 portfolio-item mb-4">
 
-                  <div class="card" style="padding: 2em">
-                    <img class="card-img-top mh-75" src="<%= product.image %>" alt="product <%= product.name %> image" style="object-fit: scale-down; height: 150px">
-                    
-                      <div class="card-body mh-25">
-                        <h4 class="card-title text-truncate">
-                          <a href="/products/<%=product._id%>">
-                            <%= product.name %>
-                          </a>
-                        </h4>
-                        <p class="card-text text-truncate"><%= product.description %></p>
-                        <button type="button" class="btn btn-link align-middle">Link</button>
+                <div class="card" style="padding: 2em">
+                  <img class="card-img-top mh-75" src="<%= product.image %>" alt="product <%= product.name %> image" style="object-fit: scale-down; height: 150px">
+                  
+                    <div class="card-body mh-25">
+                      <h4 class="card-title text-truncate">
+                        <a href="/products/<%=product._id%>">
+                          <%= product.name %>
+                        </a>
+                      </h4>
+                      <p class="card-text text-truncate"><%= product.description %></p>
+                      <button type="button" class="btn btn-link align-middle">Link</button>
 
-                        <a class="btn redondo orange" href="#" role="button"><i class="fas fa-plus"></i></a>
+                      <a class="btn redondo orange" href="#" role="button"><i class="fas fa-plus"></i></a>
 
-                        <div style="font-size:3em; color:Tomato">
-                          <i class="fas fa-heart"></i>
-                          <span class="fa-layers-counter" style="background:Tomato">1,419</span>
-                        </div>
-                        
+                      <div style="font-size:3em; color:Tomato">
+                        <i class="fas fa-heart"></i>
+                        <span class="fa-layers-counter" style="background:Tomato">1,419</span>
                       </div>
-                  </div>
+                      
+                    </div>
+                </div>
 
-              </div>
-          <% }); %>
-      </div>
-      
-  </div>
-
+            </div>
+        <% }); %>
+    </div>  
     
-  <% } else { %>
-  <h3 class="">Atención, no existe mingún producto creado o no se ha podido acceder a la base de datos!!!!</h3>
-  <% } %>
-
+    <% } else { %>
+    <h3 class="">Atención, no existe mingún producto creado o no se ha podido acceder a la base de datos!!!!</h3>
+    <% } %>
+  </div>
 </main>
   
