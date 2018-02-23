@@ -9,11 +9,10 @@ module.exports.showAll = (req, res) => {
 };
 
 
-
-module.exports.index = (req, res) => {
+module.exports.editproducts = (req, res) => {
   if (req.user && req.user.isAdmin) {
     Product.find({}).then((products) => {
-      res.render('products/index', {
+      res.render('products/edit', {
           products: products
       });
     });
@@ -21,6 +20,18 @@ module.exports.index = (req, res) => {
     res.redirect('/');
   }
 };
+
+
+module.exports.show = (req, res) => {
+  Product.findById(req.params.id).then((product) => {
+    res.render('products/show', {
+      product: product
+    });
+  });
+};
+
+
+
 
 module.exports.delete = (req, res) => {
     Product.remove({_id: req.params.id}).then(() => {
@@ -57,13 +68,6 @@ module.exports.create = (req, res) => {
     });
 };
 
-module.exports.show = (req, res) => {
-  Product.findById(req.params.id).then((product) => {
-    res.render('products/show', {
-      product: product
-    });
-  });
-};
 
 
 module.exports.edit = (req, res) => {
