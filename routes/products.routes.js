@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get('/', productsController.showAll);
 
-router.get('/editproducts', productsController.editproducts);
+router.get('/edit', productsController.editproducts);
 
 router.get('/new', productsController.new);
 router.post('/create', productsController.create);
