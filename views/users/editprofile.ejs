@@ -1,0 +1,8 @@
+Aquí se muestran los datos de usuario que se pueden editar: name, description and picture
+
+<form action="./users/profile/<%= user._id %>" method="post">
+  <input type="text" name="name" value="<%= user.name %>">
+  <input type="text" name="description" value="<%= user.description %>">
+  <img src="<%= user.image %>">
+  <button type="submit" name="button">Save</button>
+</form>
