@@ -1,5 +1,6 @@
 const User = require('../models/user.model');
 const LocalStrategy = require('passport-local').Strategy;
+const AmazonStrategy = require("passport-amazon");
 
 module.exports.setup = (passport) => {
 
@@ -37,5 +38,16 @@ module.exports.setup = (passport) => {
             })
             .catch(error => next(error));
     }));
+
+    passport.use( new AmazonStrategy({
+        clientID: "amzn1.application-oa2-client.3fe92d20371c4baa99f8fe749bcdf3f1",
+        clientSecret: "d49d3233150dbc5ba1291136a0def2b433bcf3dd53725cc919ee790da72ddbe3",
+        callbackURL: "http://localhost:3000/amazon/callback"
+      },
+      function(accessToken, refreshToken, profile, done) {
+        console.log('Entro en la estrategia');
+        console.log(profile)
+      }
+    ));
 
 }

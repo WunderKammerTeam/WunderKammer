@@ -5,3 +5,8 @@ module.exports.home = (req, res) => {
     res.render('index', {products});
   });
 };
+
+module.exports.privacy = (req, res) => {
+    res.render('privacy');
+};
+

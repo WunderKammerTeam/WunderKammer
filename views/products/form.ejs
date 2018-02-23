@@ -1,21 +1,81 @@
-<% if (typeof product !== 'undefined' && product.name ) { %>
-  <form action="/products/<%= product.id %>" method="post">
-<% } else { %>
-  <form action="/products" method="post">
-<% } %>
+<main class="container-fluid WK-background-light-1">
+  <div class="container py-5">
 
-  Name:
-  <input type="text" name="name" value="<%= product.name %>">
+      <form id="check-amazon" action="" method="post">
+        <input type="text" name="amazon_id_to_check" id="amazon_id_to_check">
+        <i class="fab fa-amazon fa-3x"></i> <input class="btn btn-warning" type="submit" value="Validate at Amazon">
+      </form>
 
-  Price:
-  <input type="text" name="price" value="<%= product.price %>">
+      <script type="text/javascript">
+        $("#check-amazon").submit(function(event) {
+          event.preventDefault();
+          
+          //AJAX call
+          $.ajax({
+            url: "/products/amazoncheck/" + $("#amazon_id_to_check").val(),
+            method: "GET",
+            success: function (response) {
+              console.log("AJAX says: okay, this is the response from the Amazon´s API printed at the browser console:");
+              console.log(response);
+            },
+            error: function (err) {
+              console.log("This is AJAX at the browser console:  something went wrong with the Amazon´s API");
+              console.log(err);
+            },
+          })
 
-  <!-- Image:
-  <input type="text" name="image" value="<%= product.image %>"> -->
+        })
+      </script> 
 
-  Description
-  <input type="text" name="description" value="<%= product.description %>">
 
-  <input type="submit"/>
-</form>
-</form>
+
+      <% if (typeof product !== 'undefined' && product.name ) { %>
+        <form action="/products/<%= product.id %>" method="post">
+      <% } else { %>
+        <form action="/products" method="post">
+      <% } %>
+
+        <div class="form-group mt-5">
+          <label for="id_amazon">Product ID at Amazon Store:</label>
+          <input type="text" class="form-control" id="id_amazon" aria-describedby="Product Id at Amazon" placeholder="Enter ID Product at Amazon Store">
+          <small id="id_amazonHelp" class="form-text text-muted">Enter just the ID of the product at www.amazon.es</small>
+        </div>
+        <div class="form-group">
+          <label for="url_amazon">Product URL in Amazon:</label>
+          <input type="text" class="form-control" id="url_amazon" aria-describedby="Amazon URL" placeholder="Enter Product URL in Amazon">
+          <small id="url_amazonHelp" class="form-text text-muted">Enter the complete URL of the product at www.amazon.es</small>
+        </div>
+
+        <div class="form-group mt-4">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="product name" name="name" value="<%= product.name %>">
+        </div>
+        <div class="form-group">
+          <label for="description">description</label>
+          <textarea class="form-control" id="description" rows="3" name="description" placeholder="Enter description for the product"><%= product.description %></textarea>
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select class="form-control" id="category" value="<%= product.category %>">
+            <option>Toys</option>
+            <option>Wear</option>
+            <option>Unicorn Stuff</option>
+            <option>Decoration</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input type="text" class="form-control" id="price" placeholder="product price" name="price" value="<%= product.price %>">
+        </div>
+
+        <!-- Image:
+        <input type="text" name="image" value="<%= product.image %>"> -->
+
+        Description
+        <input type="text" >
+
+        <input type="submit"/>
+      </form>
+
+  </div>
+</main>

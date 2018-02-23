@@ -10,6 +10,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const passport = require('passport');
 const mongoose = require('mongoose');
+const amazon = require('./configs/amazon.config');
 
 // Import DB and passport config
 require('./configs/db.config');
@@ -64,12 +65,13 @@ app.use('/', auth);
 app.use('/users', users);
 app.use('/products', products);
 
-// catch 404 and forward to error handler
+// // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  const err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
+   const err = new Error('Not Found');
+   err.status = 404;
+   res.render('error', {err});
+
+ });
 
 // error handler
 app.use(function(err, req, res) {
@@ -79,7 +81,7 @@ app.use(function(err, req, res) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error', {err});
 });
 
 module.exports = app;

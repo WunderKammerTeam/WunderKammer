@@ -1,0 +1,46 @@
+<main class="container-fluid WK-background-light-1">
+  <div class="container">
+
+      <h5 class="pt-4">Private area just for admins!</h5>
+    
+      <div >
+          <h4 class="pt-3">Create new Product:</h4>
+          <a href="/products/new" class="btn btn-info">New Product</a>
+          <h4 class="mb-2 mt-4">List of all existing Products in WunderKammer Database:</h4>
+      </div>
+
+      <div class="row flex-column">
+        <% products.forEach((product) => { %>
+          <div class="border border-warning rounded p-3 mb-4 bg-white">
+
+            <div class="row">
+              <div class="col-md-3">
+                <img class="img-thumbnail" src="<%= product.image %>" style="height: 200px" />
+              </div>
+              <div class="col-md-9">
+                  <p><b>Product Name: </b><%= product.name %></p>
+                  <p><b>Description: </b> <%= product.description %></p>
+                  <p><b>Product Name: </b><%= product.price %></p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-8">
+              </div>
+              <div class="col-md-2">
+                  <form action="/products/<%= product._id %>/delete" method="post">
+                    <input class="btn btn-danger w-75" type="submit" value="Delete">
+                  </form>
+              </div>
+              <div class="col-md-2">
+                  <a class="btn btn-warning w-75" href="/products/<%= product._id %>/edit" role="button">Edit</a>
+              </div>
+            </div>
+            
+          </div>
+        <% }) %>
+      </div>
+    
+  </div>
+</main>
+  

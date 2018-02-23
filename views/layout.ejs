@@ -15,7 +15,15 @@
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
         <!-- CSS customization  -->
-        <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"> 
+
+              <!-- Compiled and minified Bootstrap JavaScript -->
+              <script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </head>
 
     <body>
@@ -23,37 +31,40 @@
 <!-- Este es el header con el Nav que va a ser común para todas las vistas -->
 
       <header>
-          <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e7a5de;">
+          <nav class="navbar navbar-expand-lg navbar-light WK-background-color1">
               <div class="container">
               <a class="navbar-brand" href="/"><img src="/images/w.png" height="50" alt="Wonder Logo"> WunderKammer </a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarResponsive">
-                  <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
-                      <% if (session && session.isAdmin) { %>
-                      <li><a class="nav-link" href="/products">Edit Products</a>
-                       <% } %>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="#">Categories</a>
-                  </li>
+                    <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <% if (session && session.isAdmin) { %>
+                        <li><a class="nav-link" href="/products/edit">Edit Products</a>
+                        <% } %>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Categories</a>
+                    </li>
                   <% if (!session.email) { %>
-                      <li class="nav-item">
-                          <a href="/login" class="btn btn-warning" role="button" aria-pressed="true">Login <i class="fas fa-sign-in-alt"></i></a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="/signup">Signup</a>
-                      </li>
+                    <li class="nav-item">
+                        <a href="/login" class="btn btn-warning" role="button" aria-pressed="true">Login <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">Signup</a>
+                    </li>
                   <% } else { %>
-                      <span>Hola <%= session.name %>  </span>
-                      <li class="nav-item">
-                          <a href="/users/profile/<%= session._id %>">Settings</a>
-                      </li>
-                      <li class="nav-item">
-                          <a href="/logout">logout <i class="fas fa-sign-out-alt"></i></a>
-                      </li>
+                    <li class="nav-link text-white mx-3">Hola <%= session.name %>  </li>
+                    <li class="nav-item">
+                        <a href="/profile" class="btn btn-warning" role="button" aria-pressed="true"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">logout <i class="fas fa-sign-out-alt"></i></a>
+                    </li>
                   <% } %>
                   </ul>
               </div>
@@ -68,12 +79,12 @@
 
       <!-- Este es el footer que va a ser común para todas las vistas -->
 
-      <footer class="container-fluid color1">
+      <footer class="container-fluid WK-background-color2 py-5">
 
           <!--Footer Links-->
           <div class="container">
 
-              <div class="row mt-4">
+              <div class="row">
                   <!--First column-->
                   <div class="col-md-6">
                       <h3 class="title">WunderKammer</h3>
@@ -103,8 +114,7 @@
                   <div class="col-md-3">
                       <h5 class="title">Legal Stuff</h5>
                       <nav class="nav flex-column">
-                          <a class="nav-link" href="#">Terms & Condition</a>
-                          <a class="nav-link" href="#">Unicorn Policy</a>
+                          <a class="nav-link" href="/privacy">Unicorn Policy</a>
                           <a class="nav-link" href="#">About Us</a>
                           <a class="nav-link" href="#">Contact</a>
                       </nav>
@@ -138,12 +148,6 @@
           <!--/.Footer Links-->
 
       </footer>
-
-
-      <!-- Compiled and minified Bootstrap JavaScript -->
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
       <!-- Parallax effect JavaScript -->
       <script src="/javascript/parallax.min.js"></script>
