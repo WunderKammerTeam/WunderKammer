@@ -10,9 +10,12 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const passport = require('passport');
 const mongoose = require('mongoose');
-const amazon = require('./configs/amazon.config');
+
+// Rquire Environment Variables ----> IMPORTANT: remeber to add the .env file to GitIgnore!!!
+require("dotenv").config();
 
 // Import DB and passport config
+const amazon = require('./configs/amazon.config');
 require('./configs/db.config');
 require('./configs/passport.config').setup(passport);
 
@@ -39,11 +42,11 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-  secret: process.env.COOKIE_SECRET || 'SuperSecret',
+  secret: process.env.COOKIE_SECRET,
   resave: true,
   saveUninitialized: true,
   cookie: {
-    secure: process.env.COOKIE_SECURE || false,
+    secure: process.env.COOKIE_SECURE || false, //IMPORTANT: in production add this variable in .env to TRUE
     httpOnly: true
   },
   store: new MongoStore({

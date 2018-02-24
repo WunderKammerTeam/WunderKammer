@@ -1,6 +1,13 @@
 const User = require('../models/user.model');
 const LocalStrategy = require('passport-local').Strategy;
-const AmazonStrategy = require("passport-amazon");
+const AmazonStrategy = require("passport-amazon"); // more info at: https://www.npmjs.com/package/passport-amazon
+
+// Environment Variables ----> IMPORTANT: remeber to add the .env file to GitIgnore!!!
+// The amazon SOCIAL LOGIN Id, secret and callback rul are at the .env file.
+// If we need to change anything go to .env and: https://login.amazon.com/
+const clientID = process.env.AMAZON_LOGIN_CLIENT_ID;
+const clientSecret = process.env.AMAZON_LOGIN_CLIENT_SECRET;
+const callbackURL = process.env.AMAZON_LOGIN_CALLBACK_URL;
 
 module.exports.setup = (passport) => {
 
@@ -40,9 +47,9 @@ module.exports.setup = (passport) => {
     }));
 
     passport.use( new AmazonStrategy({
-        clientID: "amzn1.application-oa2-client.3fe92d20371c4baa99f8fe749bcdf3f1",
-        clientSecret: "d49d3233150dbc5ba1291136a0def2b433bcf3dd53725cc919ee790da72ddbe3",
-        callbackURL: "http://localhost:3000/amazon/callback"
+        clientID,
+        clientSecret,
+        callbackURL
       },
       function(accessToken, refreshToken, profile, done) {
         console.log('Entro en la estrategia');
