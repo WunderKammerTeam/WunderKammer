@@ -64,7 +64,7 @@
         <% for (let i = 0; i < 3; i++){ %> 
           <div class=" col-md-4 col-sm-6 portfolio-item mb-4">
             <div class="card" style="padding: 2em">
-              <img class="card-img-top mh-75" src="<%= products[i].image %>" alt="product <%= products[i].name %> image" style="object-fit: scale-down; height: 150px">
+              <img class="card-img-top mh-75" src="<%= products[i].images_array[0] %>" alt="product <%= products[i].name %> image" style="object-fit: scale-down; height: 150px">
               
                 <div class="card-body mh-25">
                   <h4 class="card-title text-truncate">
@@ -72,7 +72,7 @@
                       <%= products[i].name %>
                     </a>
                   </h4>
-                  <p class="card-text text-truncate"><%= products[i].description %></p>
+                  <p class="card-text text-truncate"><%= products[i].description[0] %></p>
                   <button type="button" class="btn btn-link align-middle">Link</button>
                   
                   <a class="btn redondo orange" href="#" role="button"><i class="fas fa-plus"></i></a>

@@ -35,7 +35,7 @@ module.exports.show = (req, res) => {
 
 module.exports.delete = (req, res) => {
     Product.remove({_id: req.params.id}).then(() => {
-    res.redirect('/products');
+    res.redirect('/products/edit');
   });
 };
 
@@ -50,15 +50,38 @@ module.exports.new = (req, res) => {
   }
 };
 
+
 module.exports.create = (req, res) => {
+
+  let createDescriptionArray =[];
+  // si hay imagenes las añadimos a la matriz
+    if ( req.body.description_0 != "") {createDescriptionArray.push(req.body.description_0)};
+    if ( req.body.description_1 != "") {createDescriptionArray.push(req.body.description_1)};
+    if ( req.body.description_2 != "") {createDescriptionArray.push(req.body.description_2)};
+    if ( req.body.description_3 != "") {createDescriptionArray.push(req.body.description_3)};
+    if ( req.body.description_4 != "") {createDescriptionArray.push(req.body.description_4)};
+
+  let createPhotosArray =[];
+  // si hay imagenes las añadimos a la matriz
+    if ( req.body.images_array_0 != "") {createPhotosArray.push(req.body.images_array_0)};
+    if ( req.body.images_array_1 != "") {createPhotosArray.push(req.body.images_array_1)};
+    if ( req.body.images_array_2 != "") {createPhotosArray.push(req.body.images_array_2)};
+    if ( req.body.images_array_3 != "") {createPhotosArray.push(req.body.images_array_3)};
+    if ( req.body.images_array_4 != "") {createPhotosArray.push(req.body.images_array_4)};
+
+
   const product = new Product({
+    id_amazon: req.body.id_amazon,
+    url_amazon: req.body.url_amazon,
     name: req.body.name,
-    description: req.body.description,
+    description: createDescriptionArray,
+    category: req.body.category,
     price: req.body.price,
+    images_array: createPhotosArray
   });
   product.save()
     .then(() => {
-        res.redirect('/products');
+        res.redirect('/products/edit');
     })
     .catch((err) => {
       res.render('products/form', {
@@ -109,19 +132,19 @@ module.exports.amazoncheck = (req, res) => {
     if (err) {
       console.log("la api ha dado un puto error:");
       console.log(err);
-      res.send(err);
+      res.send("amazonerror");
 
     } else {
 
-      console.log("SERVER CONSOLE - esto es results:");
-      console.log(results);
-      console.log("SERVER CONSOLE - esto es response:");
-      console.log(response);
+      // console.log("SERVER CONSOLE - esto es results:");
+      // console.log(results);
+      // console.log("SERVER CONSOLE - esto es response:");
+      // console.log(response);
 
       // Creamos un array vacío en el que vamos a añadir la URL de las fotos del producto
-      var photosArray =[];
+      let photosArray =[];
       // Recorremos el array en el que vienen todas las imágenes en distintos formatos y con más propiedades y nos quedamos solo con un array con la URL de las imágenes en calidad Large y las añadimos a PhotosArray
-      for (var i = 0; i < response[0].Item[0].ImageSets[0].ImageSet.length; i++){
+      for (let i = 0; i < response[0].Item[0].ImageSets[0].ImageSet.length; i++){
         console.log("adding photo" + i);
         photosArray.push(response[0].Item[0].ImageSets[0].ImageSet[i].LargeImage[0].URL[0]);
       }
@@ -132,13 +155,13 @@ module.exports.amazoncheck = (req, res) => {
         "url_amazon": response[0].Item[0].DetailPageURL[0],
         "name": response[0].Item[0].ItemAttributes[0].Title[0],
         "description": response[0].Item[0].ItemAttributes[0].Feature, // esto es un array, ojo!!
-        "category": "",
         "price": response[0].Item[0].ItemAttributes[0].ListPrice[0].FormattedPrice[0],
-        "image": photosArray
+        "images_array": photosArray
       };
 
-      response = amazonResponse;
-      res.send(response);
+      // console.log("SERVER CONSOLE - esto es el objeto que enviamos como respuesta:");
+      console.log(amazonResponse);
+      res.send(amazonResponse);
   
     }
   });
