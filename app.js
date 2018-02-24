@@ -16,6 +16,9 @@ const amazon = require('./configs/amazon.config');
 require('./configs/db.config');
 require('./configs/passport.config').setup(passport);
 
+// Rquire Environment Variables ----> IMPORTANT: remeber to add the .env file to GitIgnore!!!
+require("dotenv").config();
+
 // Require routes
 const index = require('./routes/index.routes');
 const auth = require('./routes/auth.routes');
