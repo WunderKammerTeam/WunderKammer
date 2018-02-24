@@ -29,10 +29,10 @@ const ProductSchema = new Schema({
         required: [true, 'Price is required'],
         min: 0
     },
-    image: {
+    image: [{
         type: String,
         default: 'https://placeholdit.imgix.net/~text?txtsize=33&txt=250×250&w=250&h=250'
-    }
+    }]
 });
 
 const Product = mongoose.model('Product', ProductSchema);
