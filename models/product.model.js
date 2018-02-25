@@ -14,11 +14,11 @@ const ProductSchema = new Schema({
         type: String,
         required: [true, 'Name is required']
       },
-    description: {
+    description: [{
         type: String,
         required: [true, 'Name is required'],
         maxlength: 250
-    },
+    }],
     category: {
         type: String,
         enum: [ "Toys", "Wear", "Unicorn Stuff", "Decoration"]
@@ -29,7 +29,7 @@ const ProductSchema = new Schema({
         required: [true, 'Price is required'],
         min: 0
     },
-    image: [{
+    images_array: [{
         type: String,
         default: 'https://placeholdit.imgix.net/~text?txtsize=33&txt=250×250&w=250&h=250'
     }]
