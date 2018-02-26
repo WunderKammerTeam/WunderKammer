@@ -3,7 +3,7 @@ const amazon = require('../configs/amazon.config');
 
 
 module.exports.showAll = (req, res) => {
-  Product.find({}).then((products) => {
+  Product.find({}).sort({_id:-1}).then((products) => {
     res.render('products/index', { products: products} );
   });
 };
@@ -11,7 +11,7 @@ module.exports.showAll = (req, res) => {
 
 module.exports.editproducts = (req, res) => {
   if (req.user && req.user.isAdmin) {
-    Product.find({}).then((products) => {
+    Product.find({}).sort({created:-1}).then((products) => {
       res.render('products/edit', {
           products: products
       });
@@ -126,7 +126,7 @@ module.exports.amazoncheck = (req, res) => {
   amazon.itemLookup({
     idType: 'ASIN',
     itemId: req.params.id,
-    domain: 'webservices.amazon.es',
+    domain: 'webservices.amazon.com', //si queremos que consulte solo en amazon españa hay que poner webservices.amazon.es
     responseGroup: 'ItemAttributes,Images'
   }, function(err, results, response) {
     if (err) {
