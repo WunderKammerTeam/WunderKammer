@@ -11,7 +11,7 @@ module.exports.showAll = (req, res) => {
 
 module.exports.editproducts = (req, res) => {
   if (req.user && req.user.isAdmin) {
-    Product.find({}).sort({created:-1}).then((products) => {
+    Product.find({}).sort({created: -1}).then((products) => {
       res.render('products/edit', {
           products: products
       });
@@ -31,6 +31,9 @@ module.exports.show = (req, res) => {
 };
 
 
+module.exports.categories = (req, res) => {
+  res.render('products/categories');
+};
 
 
 module.exports.delete = (req, res) => {

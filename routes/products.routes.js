@@ -8,6 +8,7 @@ router.get('/edit', productsController.editproducts);
 
 router.get('/new', productsController.new);
 router.post('/create', productsController.create);
+router.get('/categories', productsController.categories);
 router.get('/:id', productsController.show);
 router.get('/:id/edit', productsController.edit);
 router.post('/:id/update', productsController.update);
