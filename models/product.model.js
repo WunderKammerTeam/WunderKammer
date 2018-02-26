@@ -32,7 +32,11 @@ const ProductSchema = new Schema({
     images_array: [{
         type: String,
         default: 'https://placeholdit.imgix.net/~text?txtsize=33&txt=250×250&w=250&h=250'
-    }]
+    }],
+    created: {
+        type: Date,
+        default: new Date()
+    }
 });
 
 const Product = mongoose.model('Product', ProductSchema);
