@@ -59,35 +59,37 @@
         <button type="submit" class="btn btn-block btn-success">Create New Product</button>
       </div>
 
-      <div class="form-group mt-5">
-        <label for="category">Category</label>
-        <select class="form-control" id="category" value="<%= product.category %>">
-          <option>Toys</option>
-          <option>Wear</option>
-          <option>Unicorn_Stuff</option>
-          <option>Decoration</option>
-        </select>
-      </div>
+        <div class="form-group mt-5">
+          <label for="category">Category</label>
+          <select class="form-control" id="category" name="category">
+            <option <% if (product.category === 'Toys') { %> selected <% } %> >Toys</option>
+            <option <% if (product.category === 'Wear') { %> selected <% } %> >Wear</option>
+            <option <% if (product.category === 'Unicorn_Stuff') { %> selected <% } %> >Unicorn_Stuff</option>
+            <option <% if (product.category === 'Decoration') { %> selected <% } %> >Decoration</option>
+          </select>
+        </div>
       
-      <div class="form-group mt-5">
+        <div class="form-group mt-5">
           <label for="id_amazon">Product ID at Amazon Store:</label>
-          <input type="text" class="form-control" id="id_amazon" aria-describedby="Product Id at Amazon" value="<%= product.id_amazon %>">
-          <small id="id_amazonHelp" class="form-text text-muted">Enter just the ID of the product at www.amazon.com</small>
+          <input type="text" class="form-control" id="id_amazon" name="id_amazon" value="<%= product.id_amazon %>">
+          <small class="form-text text-muted">Enter just the ID of the product at www.amazon.com</small>
         </div>
         <div class="form-group mt-2">
           <label for="url_amazon">Product URL in Amazon:</label>
-          <input type="text" class="form-control" id="url_amazon" aria-describedby="Amazon URL" value="<%= product.url_amazon %>">
-          <small id="url_amazonHelp" class="form-text text-muted">Enter the complete URL of the product at www.amazon.es</small>
+          <input type="text" class="form-control" id="url_amazon" name="url_amazon" value="<%= product.url_amazon %>">
+          <small class="form-text text-muted">Enter the complete URL of the product at www.amazon.es</small>
         </div>
         <div class="form-group mt-2">
           <label for="name">Name</label>
-          <input type="text" class="form-control" id="name" placeholder="product name" name="name" value="<%= product.name %>">
+          <input type="text" class="form-control" id="name" name="name" value="<%= product.name %>">
+          <small class="form-text text-muted">Enter product name</small>                 
         </div>
-        <div class="form-group">
+        <div class="form-group mt-2">
           <label for="price">Price</label>
-          <input type="text" class="form-control" id="price" placeholder="product price" name="price" value="<%= product.price %>">
+          <input type="text" class="form-control" id="price" name="price" value="<%= product.price %>">
+          <small class="form-text text-muted">Enter product price</small>                 
         </div>
-        <div class="form-groupmt-2">
+        <div class="form-group mt-2">
           <label for="description">description</label>
           <input type="text" class="form-control" id="description_0" name="description_0" value="<%= product.description[0] %>">
           <input type="text" class="form-control" id="description_1" name="description_1" value="<%= product.description[1] %>">
@@ -96,13 +98,14 @@
           <input type="text" class="form-control" id="description_4" name="description_4" value="<%= product.description[4] %>">
           <small class="form-text text-muted">Enter description lines for the product</small>       
         </div>
-        <div class="form-groupmt-2">
+        <div class="form-group mt-2">
           <label for="description">Images URLs</label>
-          <input type="text" class="form-control" id="images_array_0" name="images_array_0" placeholder="Enter main URL picture for the product"><%= product.images_array[0] %></textarea>
-          <input type="text" class="form-control" id="images_array_1" name="images_array_1" placeholder="Enter another URL picture for the product"><%= product.images_array[1] %></textarea>
-          <input type="text" class="form-control" id="images_array_2" name="images_array_2" placeholder="Enter another URL picture for the product"><%= product.images_array[2] %></textarea>
-          <input type="text" class="form-control" id="images_array_3" name="images_array_3" placeholder="Enter another URL picture for the product"><%= product.images_array[3] %></textarea>
-          <input type="text" class="form-control" id="images_array_4" name="images_array_4" placeholder="Enter another URL picture for the product"><%= product.images_array[4] %></textarea>
+          <input type="text" class="form-control" id="images_array_0" name="images_array_0" value="<%= product.images_array[0] %>">
+          <input type="text" class="form-control" id="images_array_1" name="images_array_1" value="<%= product.images_array[1] %>">
+          <input type="text" class="form-control" id="images_array_2" name="images_array_2" value="<%= product.images_array[2] %>">
+          <input type="text" class="form-control" id="images_array_3" name="images_array_3" value="<%= product.images_array[3] %>">
+          <input type="text" class="form-control" id="images_array_4" name="images_array_4" value="<%= product.images_array[4] %>">
+          <small class="form-text text-muted">Enter URL pictures for the product. The first one will be the main.</small>       
         </div>
       
     </form>
