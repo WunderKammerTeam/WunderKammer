@@ -53,7 +53,7 @@
     <% } %>
 
       <div id="warning-message" class="mt-3 d-none">
-        <h4 class="display-5 WK-text-color2"><i class="fas fa-exclamation-triangle"></i> Oops... Reference not found at Amazon.es</h4>
+        <h4 class="display-5 WK-text-color2"><i class="fas fa-exclamation-triangle"></i> Oops... Reference not found at Amazon.com</h4>
       </div>
       <div id="new-product-button" class="form-actions mt-3 d-none">
         <button type="submit" class="btn btn-block btn-success">Create New Product</button>
@@ -64,19 +64,19 @@
         <select class="form-control" id="category" value="<%= product.category %>">
           <option>Toys</option>
           <option>Wear</option>
-          <option>Unicorn Stuff</option>
+          <option>Unicorn_Stuff</option>
           <option>Decoration</option>
         </select>
       </div>
       
       <div class="form-group mt-5">
           <label for="id_amazon">Product ID at Amazon Store:</label>
-          <input type="text" class="form-control" id="id_amazon" aria-describedby="Product Id at Amazon" placeholder="Enter ID Product at Amazon Store">
-          <small id="id_amazonHelp" class="form-text text-muted">Enter just the ID of the product at www.amazon.es</small>
+          <input type="text" class="form-control" id="id_amazon" aria-describedby="Product Id at Amazon" value="<%= product.id_amazon %>">
+          <small id="id_amazonHelp" class="form-text text-muted">Enter just the ID of the product at www.amazon.com</small>
         </div>
         <div class="form-group mt-2">
           <label for="url_amazon">Product URL in Amazon:</label>
-          <input type="text" class="form-control" id="url_amazon" aria-describedby="Amazon URL" placeholder="Enter Product URL in Amazon">
+          <input type="text" class="form-control" id="url_amazon" aria-describedby="Amazon URL" value="<%= product.url_amazon %>">
           <small id="url_amazonHelp" class="form-text text-muted">Enter the complete URL of the product at www.amazon.es</small>
         </div>
         <div class="form-group mt-2">
@@ -89,11 +89,12 @@
         </div>
         <div class="form-groupmt-2">
           <label for="description">description</label>
-          <input type="text" class="form-control" id="description_0" name="description_0" placeholder="Enter description for the product"><%= product.description[0] %></textarea>
-          <input type="text" class="form-control" id="description_1" name="description_1" placeholder="Enter another description line for the product"><%= product.description[1] %></textarea>
-          <input type="text" class="form-control" id="description_2" name="description_2" placeholder="Enter another description line for the product"><%= product.description[2] %></textarea>
-          <input type="text" class="form-control" id="description_3" name="description_3" placeholder="Enter another description line for the product"><%= product.description[3] %></textarea>
-          <input type="text" class="form-control" id="description_4" name="description_4" placeholder="Enter another description line for the product"><%= product.description[4] %></textarea>
+          <input type="text" class="form-control" id="description_0" name="description_0" value="<%= product.description[0] %>">
+          <input type="text" class="form-control" id="description_1" name="description_1" value="<%= product.description[1] %>">
+          <input type="text" class="form-control" id="description_2" name="description_2" value="<%= product.description[2] %>">
+          <input type="text" class="form-control" id="description_3" name="description_3" value="<%= product.description[3] %>">
+          <input type="text" class="form-control" id="description_4" name="description_4" value="<%= product.description[4] %>">
+          <small class="form-text text-muted">Enter description lines for the product</small>       
         </div>
         <div class="form-groupmt-2">
           <label for="description">Images URLs</label>
