@@ -4,7 +4,10 @@ const amazon = require('../configs/amazon.config');
 
 module.exports.showAll = (req, res) => {
   Product.find({}).sort({_id:-1}).then((products) => {
-    res.render('products/index', { products: products} );
+    res.render('products/index', { 
+      products: products,
+      category_tag: null
+    });
   });
 };
 
