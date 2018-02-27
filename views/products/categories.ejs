@@ -1,24 +1,35 @@
-<main class="container-fluid WK-background-light-1">
+<main class="container-fluid WK-background-light-1 pb-5">
     <div class="container">
       
         <h5 class="pt-4 WK-text-color2">Wunder Categories</h5>
         
-        <a href="/products/categories/toys">
+        <a id="toys-div" href="#">       
             <div class="row border border-white rounded mt-4 bg-white">
                 <div class="col-md-1"></div>
                 <div class="col-md-3">
-                        <img src="/images/categories-toys.jpg" style="height: 200px" />
+                    <img src="/images/categories-toys.jpg" style="height: 200px" />
                 </div>
                 <div class="col-md-6">
                     <div class="WK-vertical-text-center ">
                         <h1 class="display-3 text-center WK-text-color2"><b>Toys</b></h1>
                     </div>
                 </div>
-                <div class="col-md-2"></div>
+                <div class="col-md-2">
+                    <form action="/products/categories/Toys" method="post" id="toys-form"></form>
+                </div>
             </div>  
         </a>
+          
+        <script type="text/javascript">
+            $("#toys-div").click(function(event) {
+                event.preventDefault();
+                $("#toys-form").submit();
+             });
+        </script>
 
-        <a href="/products/categories/unicornstuff">
+
+
+        <a href="/products/categories/Unicorn_Stuff">
             <div class="row border border-white rounded mt-4 bg-white">
                 <div class="col-md-1"></div>
                 <div class="col-md-3">
@@ -33,7 +44,7 @@
             </div>  
         </a>
 
-        <a href="/products/categories/wear">
+        <a href="/products/categories/Wear">
             <div class="row border border-white rounded mt-4 bg-white">
                 <div class="col-md-1"></div>
                 <div class="col-md-3">
@@ -48,7 +59,7 @@
             </div>  
         </a>
 
-        <a href="/products/categories/decoration">
+        <a href="/products/categories/Decoration">
             <div class="row border border-white rounded mt-4 bg-white">
                 <div class="col-md-1"></div>
                 <div class="col-md-3">

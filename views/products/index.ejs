@@ -1,8 +1,14 @@
 <main class="container-fluid WK-background-light-1 p-0">
+    <%= products %>
+
   <div class="container py-5 ">
   <% if (products.length) { %>
 
+    <% if (category_tag) { %>
+    <h3 class="h-3 WK-text-color2 my-3" >Showing just Mirabilias from Category: <%= category_tag%>!! </h3>
+    <% } else { %>
     <h2 class="h-3 WK-text-color2 mb-5" >These are our Digital Mirabilias!!!!</h2>
+    <% } %>
 
     <div class="row card-group">
         <% products.forEach(product => { %>
@@ -35,7 +41,7 @@
     </div>  
     
     <% } else { %>
-    <h3 class="">Atención, no existe mingún producto creado o no se ha podido acceder a la base de datos!!!!</h3>
+    <h3 class="">Attention, there is no product created or the database could not be accessed!!!!!</h3>
     <% } %>
   </div>
 </main>

@@ -36,6 +36,18 @@ module.exports.categories = (req, res) => {
 };
 
 
+module.exports.category = (req, res) => {
+  Product.find({"category": "toys"}).sort({_id:-1}).then((products) => {
+    res.render('products/index', {
+      products: products,
+      category_tag: req.params.category
+    });
+  });
+
+};
+
+
+
 module.exports.delete = (req, res) => {
     Product.remove({_id: req.params.id}).then(() => {
     res.redirect('/products/edit');

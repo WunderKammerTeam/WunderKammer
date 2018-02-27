@@ -21,7 +21,7 @@ const ProductSchema = new Schema({
     }],
     category: {
         type: String,
-        enum: [ "Toys", "Wear", "Unicorn Stuff", "Decoration"]
+        enum: [ "Toys", "Wear", "Unicorn_Stuff", "Decoration"]
 
     },
     price: {
